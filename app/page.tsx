@@ -32,7 +32,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 p-8 md:p-16">
       <audio ref={audioRef} autoPlay loop preload="auto" style={{ display: "none" }}>
-        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/everything-XxsM3tDBS4qDraptblVilRNbDHSxDd.mp3" type="audio/mpeg" />
+        <source
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/everything-XxsM3tDBS4qDraptblVilRNbDHSxDd.mp3"
+          type="audio/mpeg"
+        />
       </audio>
 
       <a rel="me" href="https://mastodon.social/@hopeugetherpes" style={{ display: "none" }}>
@@ -490,17 +493,14 @@ export default function Home() {
         </div>
 
         <footer className="mt-16 pt-8 border-t border-gray-200 text-center text-sm text-gray-500 font-archivo">
-          
-
           <p>
             The website is{" "}
             <a
-              href="https://github.com/hopeugetherpes/anatole"
+              href="https://github.com/hopeugetherpes/anatole.co"
               className="font-bold underline hover:text-gray-600 transition-colors"
             >
               open source
             </a>
-            
             <br />
             <a
               href="https://creativecommons.org/publicdomain/zero/1.0"

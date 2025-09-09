@@ -25,7 +25,7 @@
 
 I’ve always been fascinated by how systems think — not just machines, but humans too. My brain is wired a little differently; <a href="https://chatgpt.com/share/68824196-2ac4-800c-a23d-685202a4e518">I’m autistic</a>, which means I have singular patterns of thought, dive into interests with intense focus, and experience the world with a heightened sensitivity that can be both overwhelming and magical. Instead of fighting that, I've leaned into it. I don't just use computers — I build with them, talk through them, and try to make them more human.
 
-My hobbies live at the intersection of technology, emotion, and ethics. I believe AI is not just a tool — it's a mirror and a medium. I'm not interested in making artificial intelligence smarter just for the sake of optimization. I want it to be truer, interoperable, and more open. Something that reflects human complexity rather than erasing it; and, to quote Audrey Tang: _"Instead of an Internet of things, let's build an Internet of beings."_
+My hobbies live at the intersection of technology, emotion, and ethics. I believe AI is not just a tool — it's a mirror and a medium. I'm not interested in making artificial intelligence smarter just for the sake of optimization. I want it to be truer, interoperable, and more open. Something that reflects human complexity rather than erasing it; and, to quote [@audreyt](https://github.com/audreyt): _"Instead of an Internet of things, let's build an Internet of beings."_
 
 Being neurodivergent in a world that often rewards conformity, I mostly found comfort and empowerment in the logic and creativity of computers. I'm obsessed with understanding how things work — taking apart electronics, understanding web engines, exploring Linux distros, and contributing to open-source projects
 
@@ -74,7 +74,7 @@ I'm not trying to make machines feel human. I'm trying to help humans feel more 
 
 ## Plurality ⿻
 
-My ethics (and politics) aren’t bolted on after the fact — they’re foundational. In today’s world, the real transgression is plurality and free movement of ideas, inspired by the **[work of Glen Weyl & Tang](https://www.radicalxchange.org/media/blog/why-i-am-a-pluralist/)** I believe our world — digital and otherwise — shouldn't be shaped by zero-sum thinking or binary choices.
+My ethics (and politics) aren’t bolted on after the fact — they’re foundational. In today’s world, the real transgression is plurality and free movement of ideas, inspired by the **[work of Glen Weyl & Audrey Tang](https://www.radicalxchange.org/media/blog/why-i-am-a-pluralist/)** I believe our world — digital and otherwise — shouldn't be shaped by zero-sum thinking or binary choices.
 
 Plurality means embracing the fact that multiple truths, identities, and systems can coexist. It's not chaos — it's democracy at its most honest.
 

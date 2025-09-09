@@ -111,9 +111,9 @@ This site isn't a portfolio, and I'm not a product. It's a space where I try to 
 
 <p align="center">
   The website is 
- <a href="<a href="https://github.com/hopeugetherpes/anatole.co">open source</a>
+ <a href="https://github.com/hopeugetherpes/anatole.co">open source</a>
 <p align="center">
-   <a href="mailto:anatole@anatole.co?subject=PGP%2088b4d929f037b0178ad69c57f713da8b08926201">© CC0</a> Public domain dedication — no copyright required
+   <a href="https://creativecommons.org/public-domain/cc0/">© CC0</a> Public domain dedication — no copyright required
 <p align="center">
   <a href="mailto:anatole@anatole.co?subject=PGP%2088b4d929f037b0178ad69c57f713da8b08926201">anatole@anatole.co</a>  
 <p align="center">

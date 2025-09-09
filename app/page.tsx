@@ -503,17 +503,7 @@ export default function Home() {
             >
               open source
             </a>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="inline ml-1">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-              <path
-                d="M12 6v6l4 2"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path d="M2 12h20" stroke="currentColor" strokeWidth="2" />
-            </svg>
+            
             <br />
             <a
               href="https://creativecommons.org/publicdomain/zero/1.0"

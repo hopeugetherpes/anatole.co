@@ -37,7 +37,7 @@ I also run Tor relays and offer **[Z3R0](https://github.com/hopeugetherpes/Z3R0)
 
 **Open source is more than a development model. It’s a worldview.**
 
-I’m immersed in the values of openness, decentralization, and collaborative creativity. I believe code should be like air: free to circulate, evolve, and empower. This isn’t just about publishing source code — though I do that too. **~95%** of what I build is open source and dedicated to the **[CC0 public domain](https://creativecommons.org/publicdomain/zero/1.0/)** — no copyright required.
+I’m immersed in the values of openness, decentralization, and collaborative creativity. I believe code should be like air: free to circulate, evolve, and empower. This isn’t just about publishing source code — though I do that too. **~95%** of what I build is open source and dedicated to the **[CC0 public domain](https://github.com/hopeugetherpes/anatole.co/blob/main/LICENSE)** — no copyright required.
 
 It allows anyone to distribute, remix, adapt, fork and build upon the material in any medium or format, with or without attribution, for any purposes, including commercial.
 Because I fundamentally believe that knowledge and tools should not be hoarded but shared.
@@ -113,7 +113,7 @@ This site isn't a portfolio, and I'm not a product. It's a space where I try to 
   The website is 
  <a href="https://github.com/hopeugetherpes/anatole.co">open source</a>
 <p align="center">
-   <a href="https://creativecommons.org/public-domain/cc0/">© CC0</a> Public domain dedication — no copyright required
+   <a href="https://github.com/hopeugetherpes/anatole.co/blob/main/LICENSE">© CC0</a> Public domain dedication — no copyright required
 <p align="center">
   <a href="mailto:anatole@anatole.co?subject=PGP%2088b4d929f037b0178ad69c57f713da8b08926201">anatole@anatole.co</a>  
 <p align="center">

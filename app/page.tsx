@@ -512,18 +512,12 @@ export default function Home() {
               © CC0 Public domain dedication — no copyright required
             </a>
             <br />
-            <a
-              href="https://keys.openpgp.org/vks/v1/by-fingerprint/88B4D929F037B0178AD69C57F713DA8B08926201"
-              className="hover:text-gray-600 transition-colors"
-            >
+            <a href="https://pgp.anatole.co" className="hover:text-gray-600 transition-colors">
               anatole@anatole.co
             </a>
             <br />
             <span className="font-bold">PGP</span>:{" "}
-            <a
-              href="https://keys.openpgp.org/vks/v1/by-fingerprint/88B4D929F037B0178AD69C57F713DA8B08926201"
-              className="hover:text-gray-600 transition-colors"
-            >
+            <a href="https://pgp.anatole.co" className="hover:text-gray-600 transition-colors">
               88b4d929f037b0178ad69c57f713da8b08926201
             </a>
           </p>

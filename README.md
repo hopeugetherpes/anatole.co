@@ -117,4 +117,4 @@ This site isn't a portfolio, and I'm not a product. It's a space where I try to 
 <p align="center">
   <a href="mailto:anatole@anatole.co?subject=PGP%2088b4d929f037b0178ad69c57f713da8b08926201">anatole@anatole.co</a>  
 <p align="center">
-  PGP: <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/88B4D929F037B0178AD69C57F713DA8B08926201">2088b4d929f037b0178ad69c57f713da8b08926201</a>
+  PGP: <a href="https://pgp.anatole.co">2088b4d929f037b0178ad69c57f713da8b08926201</a>

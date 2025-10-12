@@ -13,7 +13,7 @@ const archivo = Archivo({
 })
 
 export const metadata: Metadata = {
-  title: "Anatole - Personal Portfolio",
+  title: "Anatole 👨🏻",
   description: "Hello, new friend. My name is Anatole.",
   generator: "v0.app",
 }

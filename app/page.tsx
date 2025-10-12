@@ -228,6 +228,13 @@ export default function Home() {
             <p>
               I also run two Tor relays and offer{" "}
               <a
+                href="https://pgp.z3r0.app/"
+                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
+              >
+                Offline-PGP
+              </a>
+              ,{" "}
+              <a
                 href="https://www.z3r0.anatole.co/"
                 className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
               >
@@ -493,8 +500,6 @@ export default function Home() {
         </div>
 
         <footer className="mt-16 pt-8 border-t border-gray-200 text-center text-sm text-gray-500 font-archivo">
-          
-
           <p>
             The website is{" "}
             <a
@@ -503,7 +508,6 @@ export default function Home() {
             >
               open source
             </a>
-            
             <br />
             <a
               href="https://creativecommons.org/publicdomain/zero/1.0"

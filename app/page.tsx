@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { Lock } from "lucide-react"
 import { useEffect, useRef } from "react"
 
 export default function Home() {
@@ -32,10 +31,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 p-8 md:p-16">
       <audio ref={audioRef} autoPlay loop preload="auto" style={{ display: "none" }}>
-        <source
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/everything-XxsM3tDBS4qDraptblVilRNbDHSxDd.mp3"
-          type="audio/mpeg"
-        />
+        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/everything-XxsM3tDBS4qDraptblVilRNbDHSxDd.mp3" type="audio/mpeg" />
       </audio>
 
       <a rel="me" href="https://mastodon.social/@hopeugetherpes" style={{ display: "none" }}>
@@ -100,19 +96,23 @@ export default function Home() {
           </a>
 
           <a
-            href="https://dadgpt.anatole.co/"
+            href="https://mastodon.social/@hopeugetherpes"
             className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
             style={{
-              backgroundColor: "#E0F2DC",
-              color: "#65A856",
+              backgroundColor: "#EDDEFC",
+              color: "#A276CF",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#EDF7EB")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#E0F2DC")}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F5EDFC")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#EDDEFC")}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z" />
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="#A276CF" />
+              <path
+                d="M8.5 7c-1.5 0-2.5 1-2.5 2.5v3c0 1.5 1 2.5 2.5 2.5h1c1.5 0 2.5-1 2.5-2.5v-3c0-1.5-1-2.5-2.5-2.5h-1zm5 0c0 1.5 1 2.5 2.5 2.5h1v2c0 1-1 2-2 2s-2-1-2-2v-2.5z"
+                fill="white"
+              />
             </svg>
-            <span className="font-medium">DadGPT</span>
+            <span className="font-medium">Mastodon</span>
           </a>
 
           <a
@@ -128,63 +128,12 @@ export default function Home() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" fill="none" stroke="#538FBD" strokeWidth="1.5" strokeDasharray="2 2" />
               <circle cx="12" cy="10" r="6" fill="#538FBD" />
-              <path d="M8 16l2-2h4c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2z" fill="#538FBD" />
-              <path d="M8 16l-2 2v-2z" fill="#538FBD" />
-            </svg>
-            <span className="font-medium">Signal</span>
-          </a>
-
-          <a
-            href="https://github.com/hopeugetherpes?tab=repositories"
-            className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
-            style={{
-              backgroundColor: "#FCEBD7",
-              color: "#F0904A",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#FFF6EB")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FCEBD7")}
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#F0904A"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-            </svg>
-            <span className="font-medium">Projects</span>
-          </a>
-
-          <a
-            href="https://mastodon.social/@hopeugetherpes"
-            className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
-            style={{
-              backgroundColor: "#EDDEFC",
-              color: "#A276CF",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F5EDFC")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#EDDEFC")}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="#A276CF" />
               <path
-                d="M8.5 7c-1.5 0-2.5 1-2.5 2.5v3c0 1.5 1 2.5 2.5 2.5h1c1.5 0 2.5-1 2.5-2.5v-3c0-1.5-1-2.5-2.5-2.5h-1zm5 0c-1.5 0-2.5 1-2.5 2.5v3c0 1.5 1 2.5 2.5 2.5h1c1.5 0 2.5-1 2.5-2.5v-3c0-1.5-1-2.5-2.5-2.5h-1zm-5 8c0 1.5 1 2.5 2.5 2.5h1v2c0 1-1 2-2 2s-2-1-2-2v-2.5z"
+                d="M8 16l2-2h4c1.1 0 2.5 1 2.5 2.5v3c0 1.5-1 2.5-2.5 2.5h-1c-1.5 0-2.5-1-2.5-2.5v-3c0-1.5-1-2.5-2.5-2.5h-1zm5 0c0 1.5 1 2.5 2.5 2.5h1v2c0 1-1 2-2 2s-2-1-2-2v-2.5z"
                 fill="white"
               />
             </svg>
-            <span className="font-medium">Mastodon</span>
-          </a>
-
-          <a
-            href="https://www.z3r0.anatole.co/"
-            className="flex items-center gap-3 px-6 py-3 bg-gray-200 text-gray-600 rounded-full hover:bg-gray-300 transition-colors"
-          >
-            <Lock size={20} />
-            <span className="font-medium">Z3R0 Encrypt</span>
+            <span className="font-medium">Signal</span>
           </a>
         </div>
 
@@ -223,32 +172,6 @@ export default function Home() {
               Being neurodivergent in a world that often rewards conformity, I mostly found comfort and empowerment in
               the logic and creativity of computers. I'm obsessed with understanding how things work — taking apart
               electronics, understanding web engines, exploring Linux distros, and contributing to open-source projects
-            </p>
-
-            <p>
-              I also run two Tor relays and offer{" "}
-              <a
-                href="https://pgp.z3r0.app/"
-                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
-              >
-                Offline-PGP
-              </a>{" "}
-              <span className="font-medium">and</span>{" "}
-              <a
-                href="https://www.z3r0.anatole.co/"
-                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
-              >
-                Z3R0
-              </a>
-              , a lightweight in-browser encryption tool (without size limitation!) for privacy and I have a deep
-              interest in{" "}
-              <a
-                href="https://github.com/mullvad/mullvad-browser"
-                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
-              >
-                Mullvad browser
-              </a>
-              , a Firefox's hardened fork.
             </p>
 
             <h3 className="text-2xl font-medium pt-4" style={{ color: "#706E70" }}>
@@ -298,15 +221,9 @@ export default function Home() {
               — radical sharing, collaborative problem- solving, and the belief that knowledge should be free — felt
               like home. For me, the act of publishing and sharing what I deem to be common knowledge, ideas, and even
               art — legally or not isn't just practical; it's a political and ethical stance.{" "}
-              {/* Added new text with archive.org link */}
-              Free flow of information and culture is non-negotiable.{" "}
-              <a
-                href="https://archive.org/details/@rxutn"
-                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
-              >
-                I publish and hoard data into the public record
-              </a>{" "}
-              so others can build without permission.
+              {/* Added new text without archive.org link */}
+              Free flow of information and culture is non-negotiable. I publish and hoard data into the public record so
+              others can build without permission.
             </p>
 
             <h3 className="text-2xl font-medium pt-4" style={{ color: "#706E70" }}>
@@ -444,7 +361,7 @@ export default function Home() {
             <p>
               I wanted to design something that could offer the kind of presence I never had: someone who listens
               without judgment, gives advice with calm authority, and affirms your worth without strings attached. It's
-              built on GPT-4o and trained on a carefully curated dataset that includes scientific publications,
+              built on GPT-4O and trained on a carefully curated dataset that includes scientific publications,
               university psychology courses, testimonial mediums, and even self-help books related to the challenges of
               growing up in a dysfunctional family with an absent father.
             </p>
@@ -452,63 +369,29 @@ export default function Home() {
             <p>
               I didn't just want a chatbot that could simulate a "dad voice." I wanted something that could mentor,
               guide, and even reparent. Something emotionally intelligent, respectful of boundaries, trauma-informed,
-              and capable of evolving based on real-world feedback. DadGPT is of course free to use, but I also{" "}
-              <a
-                href="https://github.com/hopeugetherpes/DadGPT/blob/ec1f2487301f5b371bd7fb46df4ea8350e0c1a19/Father%20Figure%20for%20Men.json"
-                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
-              >
-                open-sourced its custom instructions
-              </a>{" "}
-              so that everyone can (re)create their own DadGPT!
+              and capable of evolving based on real-world feedback.
             </p>
 
-            <div className="flex justify-start mb-6">
-              <a
-                href="https://dadgpt.anatole.co/"
-                className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
-                style={{
-                  backgroundColor: "#E0F2DC",
-                  color: "#65A856",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#EDF7EB")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#E0F2DC")}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z" />
-                </svg>
-                <span className="font-medium">DadGPT</span>
-              </a>
-            </div>
+            <a href="https://dadgpt.anatole.co/" className="inline-block">
+              <img src="/images/screenshot-202025-11-25-20at-2018.png" alt="DadGPT" className="h-12" />
+            </a>
 
-            <p>
+            <p className="pt-6">
+              If you've made it this far: <span className="font-bold">Thank you 🫶🏻</span>
+            </p>
+
+            <p className="text-[#706E70]">
               This site isn't a portfolio, and I'm not a product. It's a space where I try to make sense of what I'm
               into and how I interact with the world, and maybe help others do the same. If anything here resonates with
-              you, you're welcome here. My work is in the public domain, my inbox is open,{" "}
-              <a
-                href="https://github.com/hopeugetherpes"
-                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
-              >
-                my source code is public
-              </a>
-              :
+              you, you're welcome here. My work is in the public domain, my inbox is open:
             </p>
 
-            <p className="font-medium italic" style={{ color: "#706E70" }}>
-              Let's build something weird and worthwhile ✨
-            </p>
+            <p className="font-bold italic">Let's build something weird and worthwhile ✨</p>
           </div>
         </div>
 
         <footer className="mt-16 pt-8 border-t border-gray-200 text-center text-sm text-gray-500 font-archivo">
           <p>
-            The website is{" "}
-            <a
-              href="https://github.com/hopeugetherpes/anatole.co"
-              className="font-bold underline hover:text-gray-600 transition-colors"
-            >
-              open source
-            </a>
-            <br />
             <a
               href="https://creativecommons.org/publicdomain/zero/1.0"
               className="font-bold hover:text-gray-600 transition-colors"

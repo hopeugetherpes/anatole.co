@@ -171,7 +171,15 @@ export default function Home() {
             <p>
               Being neurodivergent in a world that often rewards conformity, I mostly found comfort and empowerment in
               the logic and creativity of computers. I'm obsessed with understanding how things work — taking apart
-              electronics, understanding web engines, exploring Linux distros, and contributing to open-source projects
+              electronics, understanding web engines, exploring Linux distros, and contributing to open-source projects.
+              Since 2025, I've joined{" "}
+              <a
+                href="https://github.com/surveillance-saboteurs"
+                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
+              >
+                Surveillance Saboteurs
+              </a>
+              , a geek collective focused on privacy, encryption, and open-source tools.
             </p>
 
             <h3 className="text-2xl font-medium pt-4" style={{ color: "#706E70" }}>

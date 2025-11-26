@@ -32,10 +32,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 p-8 md:p-16">
       <audio ref={audioRef} autoPlay loop preload="auto" style={{ display: "none" }}>
-        <source
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/everything-XxsM3tDBS4qDraptblVilRNbDHSxDd.mp3"
-          type="audio/mpeg"
-        />
+        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/everything-XxsM3tDBS4qDraptblVilRNbDHSxDd.mp3" type="audio/mpeg" />
       </audio>
 
       <a rel="me" href="https://mastodon.social/@hopeugetherpes" style={{ display: "none" }}>
@@ -454,7 +451,7 @@ export default function Home() {
               guide, and even reparent. Something emotionally intelligent, respectful of boundaries, trauma-informed,
               and capable of evolving based on real-world feedback. DadGPT is of course free to use, but I also{" "}
               <a
-                href="https://github.com/hopeugetherpes/DadGPT/blob/ec1f2487301f5b371bd7fb46df4ea8350e0c1a19/Father%20Figure%20for%20Men.json"
+                href="https://github.com/hopeugetherpes/DadGPT/blob/main/DadGPT_custom_instructions.json"
                 className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
               >
                 open-sourced its custom instructions

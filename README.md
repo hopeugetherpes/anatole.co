@@ -29,7 +29,7 @@ My hobbies live at the intersection of technology, emotion, and ethics. I believ
 
 Being neurodivergent in a world that often rewards conformity, I mostly found comfort and empowerment in the logic and creativity of computers. I'm obsessed with understanding how things work — taking apart electronics, understanding web engines, exploring Linux distros, and contributing to open-source projects
 
-I also run Tor relays and offer **[Z3R0](https://github.com/hopeugetherpes/Z3R0)**, a lightweight in-browser encryption tool (without size limitation!) for privacy. I have a deep interest in the [Mullvad browser](https://github.com/mullvad/mullvad-browser), a hardened Firefox fork.
+I also run Tor relays and offer [Z3R0](https://github.com/hopeugetherpes/Z3R0), a lightweight in-browser encryption tool (without size limitation!) for privacy. I have a deep interest in the [Mullvad browser](https://github.com/mullvad/mullvad-browser), a hardened Firefox fork.
 
 ---
 

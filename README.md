@@ -116,4 +116,3 @@ This site isn't a portfolio, and I'm not a product. It's a space where I try to 
 <p align="center">
   <a href="mailto:anatole@anatole.co">anatole@anatole.co</a>  
 <p align="center">
-

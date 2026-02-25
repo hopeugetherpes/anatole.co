@@ -119,18 +119,18 @@ export default function Home() {
             href="https://github.com/hopeugetherpes?tab=repositories"
             className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
             style={{
-              backgroundColor: "#FCEBD7",
-              color: "#F0904A",
+              backgroundColor: "#E0F2DC",
+              color: "#65A856",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#FFF6EB")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FCEBD7")}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#EDF7EB")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#E0F2DC")}
           >
             <svg
               width="20"
               height="20"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#F0904A"
+              stroke="#65A856"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"

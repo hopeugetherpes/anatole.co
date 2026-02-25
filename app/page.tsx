@@ -144,10 +144,10 @@ export default function Home() {
             href="https://mastodon.social/@hopeugetherpes"
             className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
             style={{
-              backgroundColor: "#EDDEFC",
-              color: "#A276CF",
+              backgroundColor: "#E0F2DC",
+              color: "#65A856",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F5EDFC")}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#E0F2DC")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#EDDEFC")}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">

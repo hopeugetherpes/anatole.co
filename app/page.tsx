@@ -119,7 +119,7 @@ export default function Home() {
             href="https://github.com/hopeugetherpes?tab=repositories"
             className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
             style={{
-              backgroundColor: "#FCEBD7",
+              backgroundColor: "#65A856",
               color: "#F0904A",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#FFF6EB")}

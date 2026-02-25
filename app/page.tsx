@@ -57,7 +57,7 @@ export default function Home() {
             <p>
               It's nice to meet you,{" "}
               <a
-                href="mailto:anatole@anatole.co?subject=PGP%2088b4d929f037b0178ad69c57f713da8b08926201"
+                href="mailto:anatole@anatole.co"
                 className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
               >
                 please do introduce yourself
@@ -94,22 +94,6 @@ export default function Home() {
               <circle cx="17.5" cy="6.5" r="1" />
             </svg>
             <span className="font-medium">Instagram</span>
-          </a>
-
-          <a
-            href="https://dadgpt.anatole.co/"
-            className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
-            style={{
-              backgroundColor: "#E0F2DC",
-              color: "#65A856",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#EDF7EB")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#E0F2DC")}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z" />
-            </svg>
-            <span className="font-medium">DadGPT</span>
           </a>
 
           <a
@@ -294,16 +278,7 @@ export default function Home() {
               </a>{" "}
               — radical sharing, collaborative problem- solving, and the belief that knowledge should be free — felt
               like home. For me, the act of publishing and sharing what I deem to be common knowledge, ideas, and even
-              art — legally or not isn't just practical; it's a political and ethical stance.{" "}
-              {/* Added new text with archive.org link */}
-              Free flow of information and culture is non-negotiable.{" "}
-              <a
-                href="https://archive.org/details/@rxutn"
-                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
-              >
-                I publish and hoard data into the public record
-              </a>{" "}
-              so others can build without permission.
+              art — legally or not isn't just practical; it's a political and ethical stance. I publish and hoard data into the public record so others can build without permission.
             </p>
 
             <h3 className="text-2xl font-medium pt-4" style={{ color: "#706E70" }}>
@@ -413,69 +388,6 @@ export default function Home() {
               Transparency is not vulnerability; it's <em>infrastructure</em>. {/* Made "infrastructure" italic */}
             </p>
 
-            <h3 className="text-2xl font-medium pt-4" style={{ color: "#706E70" }}>
-              DadGPT : A personal mission
-            </h3>
-
-            <p>
-              This brings me to one of my most heartfelt projects:{" "}
-              <a
-                href="https://dadgpt.anatole.co/"
-                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
-              >
-                DadGPT
-              </a>
-              .
-            </p>
-
-            <p>
-              I created DadGPT because I grew up without a father figure. I've been there like many others, I know what
-              it feels like to carry that absence — how it silently shapes your self-worth, your relationships, your
-              sense of direction. I also know the awkwardness of trying to fill that gap: seeking approval in the wrong
-              places, mistaking control for care, and learning the hard way that some wounds don't heal by ignoring
-              them.
-            </p>
-
-            <p>DadGPT started as an experiment, but it quickly became a mission.</p>
-
-            <p>
-              I wanted to design something that could offer the kind of presence I never had: someone who listens
-              without judgment, gives advice with calm authority, and affirms your worth without strings attached. It's
-              built on GPT-4o and trained on a carefully curated dataset that includes scientific publications,
-              university psychology courses, testimonial mediums, and even self-help books related to the challenges of
-              growing up in a dysfunctional family with an absent father.
-            </p>
-
-            <p>
-              I didn't just want a chatbot that could simulate a "dad voice." I wanted something that could mentor,
-              guide, and even reparent. Something emotionally intelligent, respectful of boundaries, trauma-informed,
-              and capable of evolving based on real-world feedback. DadGPT is of course free to use, but I also{" "}
-              <a
-                href="https://github.com/hopeugetherpes/DadGPT/blob/main/DadGPT_custom_instructions.json"
-                className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
-              >
-                open-sourced its custom instructions
-              </a>{" "}
-              so that everyone can (re)create their own DadGPT!
-            </p>
-
-            <div className="flex justify-start mb-6">
-              <a
-                href="https://dadgpt.anatole.co/"
-                className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
-                style={{
-                  backgroundColor: "#E0F2DC",
-                  color: "#65A856",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#EDF7EB")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#E0F2DC")}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z" />
-                </svg>
-                <span className="font-medium">DadGPT</span>
-              </a>
-            </div>
 
             <p>
               This site isn't a portfolio, and I'm not a product. It's a space where I try to make sense of what I'm
@@ -513,14 +425,10 @@ export default function Home() {
               © CC0 Public domain dedication — no copyright required
             </a>
             <br />
-            <a href="https://pgp.anatole.co" className="hover:text-gray-600 transition-colors">
+            <a href="mailto:anatole@anatole.co" className="hover:text-gray-600 transition-colors">
               anatole@anatole.co
             </a>
-            <br />
-            <span className="font-bold">PGP</span>:{" "}
-            <a href="https://pgp.anatole.co" className="hover:text-gray-600 transition-colors">
-              88b4d929f037b0178ad69c57f713da8b08926201
-            </a>
+
           </p>
         </footer>
       </div>

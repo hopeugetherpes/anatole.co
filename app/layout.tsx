@@ -15,7 +15,7 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   title: "Anatole 👨🏻",
   description: "Hello, new friend. My name is Anatole.",
-  generator: "v0.app",
+ 
 }
 
 export default function RootLayout({

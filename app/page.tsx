@@ -119,8 +119,8 @@ export default function Home() {
             href="https://github.com/hopeugetherpes?tab=repositories"
             className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
             style={{
-              backgroundColor: "#65A856",
-              color: "#F0904A",
+              backgroundColor: "#E0F2DC",
+              color: "#65A856",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#EDF7EB")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#E0F2DC")}
@@ -144,10 +144,10 @@ export default function Home() {
             href="https://mastodon.social/@hopeugetherpes"
             className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
             style={{
-              backgroundColor: "#E0F2DC",
-              color: "#65A856",
+              backgroundColor: "#EDDEFC",
+              color: "#A276CF",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#E0F2DC")}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F5EDFC")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#EDDEFC")}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">

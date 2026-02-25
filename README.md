@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Hello, new friend — I’m Anatole</h1>
 <p align="center">
-  It’s nice to meet you. Please <a href="mailto:anatole@anatole.co?subject=PGP%2088b4d929f037b0178ad69c57f713da8b08926201">do introduce yourself</a>
+  It’s nice to meet you. Please <a href="mailto:anatole@anatole.co">do introduce yourself</a>
 — You don't really need a reason or occasion.
 
 
@@ -14,7 +14,6 @@
 [![Signal](https://img.shields.io/badge/Signal-3A76F0?style=for-the-badge&logo=signal&logoColor=white)](https://signal.anatole.co/) 
 [![Projects](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/hopeugetherpes?tab=repositories) 
 [![Mastodon](https://img.shields.io/badge/Mastodon-6364FF?style=for-the-badge&logo=mastodon&logoColor=white)](https://mastodon.social/@hopeugetherpes) 
-[![DadGPT](https://img.shields.io/badge/DadGPT-65A856?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/hopeugetherpes/DadGPT) 
 [![🔒 Z3R0 Encrypt](https://img.shields.io/badge/Z3R0%20Encrypt-706e70?style=for-the-badge&logo=shield&logoColor=white)](https://github.com/hopeugetherpes/Z3R0)
 
 </div>
@@ -46,7 +45,7 @@ Because I fundamentally believe that knowledge and tools should not be hoarded b
 
 **But these values of openness don't stop with code.** They extend into how I relate to people, how I think about governance, and how I imagine a better digital and social future.
 
-The ethos of the [free & open-source movement](https://opensource.org/osd) — radical sharing, collaborative problem-solving, and the belief that knowledge should be free — felt like home. [I publish and “hoard” data into the public record](https://archive.org/details/@rxutn) so others can build without permission.
+The ethos of the [free & open-source movement](https://opensource.org/osd) — radical sharing, collaborative problem-solving, and the belief that knowledge should be free — felt like home. I publish and “hoard” data into the public record so others can build without permission.
 
 ---
 

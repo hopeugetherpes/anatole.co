@@ -209,7 +209,7 @@ export default function Home() {
             <p>
               I also run two Tor relays and offer{" "}
               <a
-                href="https://pgp.z3r0.app/"
+                href="https://pgp.z3r0.anatole.co/"
                 className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
               >
                 Offline-PGP

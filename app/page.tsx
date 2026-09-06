@@ -236,7 +236,7 @@ export default function Home() {
             </p>
 
             <p>
-              I also run two Tor relays and propose Enclave, a lightweight in-browser encryption tool (without size
+              I also run two Tor relays and build Enclave, a lightweight in-browser encryption tool (without size
               limitation!) for privacy and I have a deep
               interest in{" "}
               <a
@@ -245,7 +245,7 @@ export default function Home() {
               >
                 Mullvad browser
               </a>
-              , a Firefox&apos;s hardened fork.
+              , a hardened fork of Firefox.
             </p>
 
             <h3 className="text-2xl font-medium pt-4" style={{ color: "#706E70" }}>

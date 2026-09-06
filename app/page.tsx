@@ -94,14 +94,14 @@ export default function Home() {
           <div className="space-y-2 font-archivo text-3xl md:text-4xl leading-relaxed" style={{ color: "#706E70" }}>
             <p>Hello, new friend, my name is Anatole</p>
             <p>
-              It's nice to meet you,{" "}
+              It&apos;s nice to meet you,{" "}
               <a
                 href="mailto:anatole@anatole.co"
                 className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
               >
                 please do introduce yourself
               </a>{" "}
-              – you don't really need a reason or occasion.
+              – you don&apos;t really need a reason or occasion.
             </p>
           </div>
         </div>
@@ -206,32 +206,32 @@ export default function Home() {
 
           <div className="text-lg leading-relaxed space-y-6" style={{ color: "#706E70" }}>
             <p>
-              I've always been fascinated by how systems think — not just machines, but humans too. My brain is wired a
+              I&apos;ve always been fascinated by how systems think — not just machines, but humans too. My brain is wired a
               little differently; {/* Link to an authoritative autism overview */}
               <a
                 href="https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd"
                 className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
               >
-                I'm autistic
+                I&apos;m autistic
               </a>
               , which means I have singular patterns of thought, dive into interests with intense focus, and experience
               the world with a heightened sensitivity that can be both overwhelming and magical. Instead of fighting
-              that, I've leaned into it. I don't just use computers — I build with them, talk through them, and try to
+              that, I&apos;ve leaned into it. I don&apos;t just use computers — I build with them, talk through them, and try to
               make them more human.
             </p>
 
             <p>
               My hobbies live at the intersection of technology, emotion, and ethics. I believe AI is not just a tool —
-              it's a mirror and a medium. I'm not interested in making artificial intelligence smarter just for the sake
+              it&apos;s a mirror and a medium. I&apos;m not interested in making artificial intelligence smarter just for the sake
               of optimization. I want it to be {/* Made text bold */}
               <span className="font-bold">truer, interoperable, and more open</span>. Something that reflects human
               complexity rather than erasing it; and, to quote Audrey Tang: {/* Made quote italic */}
-              <em>"Instead of an Internet of things, let's build an Internet of beings."</em>
+              <em>&quot;Instead of an Internet of things, let&apos;s build an Internet of beings.&quot;</em>
             </p>
 
             <p>
               Being neurodivergent in a world that often rewards conformity, I mostly found comfort and empowerment in
-              the logic and creativity of computers. I'm obsessed with understanding how things work — taking apart
+              the logic and creativity of computers. I&apos;m obsessed with understanding how things work — taking apart
               electronics, understanding web engines, exploring Linux distros, and contributing to open-source projects
             </p>
 
@@ -245,18 +245,18 @@ export default function Home() {
               >
                 Mullvad browser
               </a>
-              , a Firefox's hardened fork.
+              , a Firefox&apos;s hardened fork.
             </p>
 
             <h3 className="text-2xl font-medium pt-4" style={{ color: "#706E70" }}>
               Open Source as an Ethos
             </h3>
 
-            <p>Open source is more than a development model. It's a worldview.</p>
+            <p>Open source is more than a development model. It&apos;s a worldview.</p>
 
             <p>
               I immersed myself in the values of openness, decentralization, and collaborative creativity. I believe
-              code should be like air: free to circulate, evolve, and empower. This isn't just about publishing source
+              code should be like air: free to circulate, evolve, and empower. This isn&apos;t just about publishing source
               code though I do that too — 95% of what I build is open source and under the{" "}
               <a
                 href="https://creativecommons.org/public-domain/cc0/"
@@ -280,7 +280,7 @@ export default function Home() {
             </p>
 
             <p>
-              But these values of openness don't stop with code. They extend into how I relate to people, how I think
+              But these values of openness don&apos;t stop with code. They extend into how I relate to people, how I think
               about governance, and how I imagine a better digital and social future.
             </p>
 
@@ -294,7 +294,7 @@ export default function Home() {
               </a>{" "}
               — radical sharing, collaborative problem- solving, and the belief that knowledge should be free — felt
               like home. For me, the act of publishing and sharing what I deem to be common knowledge, ideas, and even
-              art — legally or not isn't just practical; it's a political and ethical stance. I publish and hoard data into the public record so others can build without permission.
+              art — legally or not isn&apos;t just practical; it&apos;s a political and ethical stance. I publish and hoard data into the public record so others can build without permission.
             </p>
 
             <h3 className="text-2xl font-medium pt-4" style={{ color: "#706E70" }}>
@@ -302,29 +302,29 @@ export default function Home() {
             </h3>
 
             <p>
-              I'm fond of cognitive computing — an area that explores how machines can simulate (and perhaps someday
+              I&apos;m fond of cognitive computing — an area that explores how machines can simulate (and perhaps someday
               complement) human thought, perception, and emotion. I see cognitive systems as more than just automation
-              engines. They're conversation partners. Mirrors. Amplifiers. Empathy machines.
+              engines. They&apos;re conversation partners. Mirrors. Amplifiers. Empathy machines.
             </p>
 
             <p>
-              I'm particularly interested in the role AI can play in supporting neurodiverse individuals, offering tools
+              I&apos;m particularly interested in the role AI can play in supporting neurodiverse individuals, offering tools
               for communication, organization, emotional regulation, and creative expression.
             </p>
 
             <p>
-              While mainstream AI applications often focus on optimization, I'm more invested in augmentation — AI that
+              While mainstream AI applications often focus on optimization, I&apos;m more invested in augmentation — AI that
               expands what it means to be human rather than replacing it.
             </p>
 
             <p>
-              Cognitive systems shouldn't replace our judgment — they should enlarge it. I'm interested in AI that
+              Cognitive systems shouldn&apos;t replace our judgment — they should enlarge it. I&apos;m interested in AI that
               listens before it predicts, that collaborates before it automates — instruments for sense-making that help
               us think, feel, and decide with more clarity and care.
             </p>
 
             <p>
-              I treat models as partners in thought: dialog loops, not black boxes. They surface patterns we'd miss and
+              I treat models as partners in thought: dialog loops, not black boxes. They surface patterns we&apos;d miss and
               hold space for reflection when attention is scattered. For neurodivergent folks like me, that can look
               like scaffolding for focus and memory, gentle prompts to self-advocate, and interfaces that regulate
               overwhelm instead of producing more of it. Less optimization; more augmentation.
@@ -332,8 +332,8 @@ export default function Home() {
 
             <p>
               Design principles matter: consent by default. Local-first whenever possible. Fail soft, recover fast.
-              Interoperability so ideas can move without losing context or authorship. These aren't just technical
-              choices — they're political ones that echo my commitment to openness, decentralization, and collaborative
+              Interoperability so ideas can move without losing context or authorship. These aren&apos;t just technical
+              choices — they&apos;re political ones that echo my commitment to openness, decentralization, and collaborative
               creativity.
             </p>
 
@@ -342,8 +342,8 @@ export default function Home() {
             </h3>
 
             <p>
-              My ethics (and politics) aren't bolted on after the fact — they're foundational to everything I do. I
-              believe in today's world, the real transgression is plurality and free movement of ideas, as inspired by
+              My ethics (and politics) aren&apos;t bolted on after the fact — they&apos;re foundational to everything I do. I
+              believe in today&apos;s world, the real transgression is plurality and free movement of ideas, as inspired by
               the{" "}
               <a
                 href="https://www.radicalxchange.org/media/blog/why-i-am-a-pluralist/"
@@ -351,9 +351,9 @@ export default function Home() {
               >
                 work of Glen Weyl and Tang
               </a>
-              . I believe our world — digital and otherwise — shouldn't be shaped by zero-sum thinking or binary
+              . I believe our world — digital and otherwise — shouldn&apos;t be shaped by zero-sum thinking or binary
               choices. Plurality means embracing the fact that multiple truths, identities, and systems can coexist.
-              It's not chaos — it's democracy at its most honest.
+              It&apos;s not chaos — it&apos;s democracy at its most honest.
             </p>
 
             <p>
@@ -368,7 +368,7 @@ export default function Home() {
             </p>
 
             <p>
-              I'm also interested in{" "}
+              I&apos;m also interested in{" "}
               <a
                 href="https://en.wikipedia.org/wiki/Radical_transparency"
                 className="underline decoration-2 underline-offset-2 hover:text-gray-600 transition-colors"
@@ -383,19 +383,19 @@ export default function Home() {
             </p>
 
             <p>
-              It means documenting my decisions, exposing my process, admitting what I don't know. It means building in
+              It means documenting my decisions, exposing my process, admitting what I don&apos;t know. It means building in
               the open — even if that sometimes means building imperfectly.
             </p>
 
             <p>
-              Transparency is not vulnerability; it's <em>infrastructure</em>. {/* Made "infrastructure" italic */}
+              Transparency is not vulnerability; it&apos;s <em>infrastructure</em>. {/* Made "infrastructure" italic */}
             </p>
 
 
             <p>
-              This site isn't a portfolio, and I'm not a product. It's a space where I try to make sense of what I'm
+              This site isn&apos;t a portfolio, and I&apos;m not a product. It&apos;s a space where I try to make sense of what I&apos;m
               into and how I interact with the world, and maybe help others do the same. If anything here resonates with
-              you, you're welcome here. My work is in the public domain, my inbox is open, my source code is public
+              you, you&apos;re welcome here. My work is in the public domain, my inbox is open, my source code is public
             </p>
 
           </div>

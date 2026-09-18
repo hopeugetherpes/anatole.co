@@ -184,7 +184,7 @@ export default function Home() {
           </a>
 
           <a
-            href="https://otr.anatole.co"
+            href="https://off-the-record.anatole.co/"
             className="flex items-center gap-3 px-6 py-3 rounded-full transition-colors"
             style={{
               backgroundColor: "#FFF1C7",

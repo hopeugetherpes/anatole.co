@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="A small generative orbit garden. Drag to bend gravity, click to pulse, and grow a new deterministic garden with Space. Works entirely offline.">
+  <title>Orbit Garden</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080b12'/%3E%3Cg fill='none' stroke='%23b783bf' stroke-width='1.1'%3E%3Cellipse cx='16' cy='16' rx='12' ry='7' transform='rotate(45 16 16)'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='7' transform='rotate(-45 16 16)'/%3E%3C/g%3E%3Ccircle cx='25' cy='22' r='2' fill='%23e7bfdb'/%3E%3C/svg%3E">
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #080b12; }
+    body { color: #a0a2ad; -webkit-tap-highlight-color: transparent; }
+    canvas { position: fixed; inset: 0; display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+    canvas.dragging { cursor: grabbing; }
+    canvas:focus-visible { outline: 1px solid #b694ce; outline-offset: -5px; }
+    header { position: fixed; z-index: 1; inset: 0 0 auto; display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: calc(14px + env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) 12px max(12px, env(safe-area-inset-left)); pointer-events: none; background: linear-gradient(#080b1270, transparent); }
+    h1 { margin: 0; color: #d7d9e2; font-size: 1rem; font-weight: 650; line-height: 1.5; letter-spacing: .23em; text-transform: uppercase; }
+    .seed { color: #9496a1; font-size: .875rem; line-height: 1.5; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    footer { position: fixed; z-index: 2; bottom: 0; left: 0; right: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 3px 8px; padding: 12px max(12px, env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); border-top: 1px solid #ffffff05; background: linear-gradient(transparent, #080b12c7); font-size: .875rem; line-height: 1.8; }
+    .hint, button { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+    kbd { display: inline-flex; align-items: center; justify-content: center; min-width: 27px; min-height: 29px; padding: 0 8px; border: 1px solid #c7c9e018; border-radius: 16px; background: #12151b55; color: #a5a6b1; font: inherit; line-height: 1.6; }
+    button { min-height: 38px; margin: -4px 0; border: 0; padding: 0; color: inherit; background: transparent; font: inherit; cursor: pointer; }
+    button:hover { color: #e0dce9; }
+    button:hover kbd { color: #e0dce9; border-color: #c7c9e044; background: #b28dc411; }
+    button:focus-visible { outline: 1px solid #b694ce; outline-offset: 4px; border-radius: 4px; }
+    button[aria-pressed="true"] kbd { border-color: #bb9ccc60; color: #d4b7e6; }
+    #motion-note { color: #838590; font-size: .8125rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    noscript { position: fixed; top: 45%; left: 10%; right: 10%; text-align: center; line-height: 1.6; }
+    @media (max-width: 520px) {
+      header { padding-top: calc(12px + env(safe-area-inset-top)); }
+      h1 { font-size: .875rem; letter-spacing: .19em; }
+      .seed { font-size: .8125rem; }
+      footer { gap: 5px 10px; }
+      button { min-height: 44px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="garden" tabindex="0" role="img" aria-label="Animated Orbit Garden. Drag to bend the orbits; click or tap to send a wave." aria-describedby="instructions">An animated garden of colored elliptical orbits and glowing beads.</canvas>
+  <header>
+    <h1>Orbit Garden</h1>
+    <span class="seed">seed <output id="seed" aria-label="Current garden seed">fc9335bb</output></span>
+  </header>
+  <footer id="instructions" aria-label="Garden controls">
+    <span class="hint"><kbd>drag</kbd> bend gravity</span>
+    <span class="hint"><kbd>click</kbd> pulse</span>
+    <button id="new" type="button" aria-label="New garden (Space)"><kbd>space</kbd> new garden</button>
+    <button id="reset" type="button" aria-label="Reset current seed (R)"><kbd>R</kbd> reset</button>
+    <button id="pause" type="button" aria-label="Pause animation (P)" aria-pressed="false"><kbd>P</kbd> <span id="pause-label">pause</span></button>
+    <span id="motion-note" hidden>· Reduced motion detected</span>
+  </footer>
+  <p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+  <noscript>Orbit Garden needs JavaScript to draw. No internet connection is required.</noscript>
+  <script>
+  (() => {
+    'use strict';
+
+    // Everything, including the backdrop and beads, is generated here.
+    // Geometry is a pure function of seed, time, and a small deformation field.
+    const TAU = Math.PI * 2;
+    const MAX_DPR = 1.75;
+    const MAX_PIXELS = 3200000;
+    const MAX_WAVES = 5;
+    const canvas = document.getElementById('garden');
+    const ctx = canvas.getContext('2d', { alpha: false });
+    const seedOutput = document.getElementById('seed');
+    const pauseButton = document.getElementById('pause');
+    const pauseLabel = document.getElementById('pause-label');
+    const announcement = document.getElementById('announcement');
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let reducedMotion = motionQuery.matches;
+    let seed = 0xfc9335bb;
+    let width = 0, height = 0, scale = 1, dpr = 1;
+    let time = 0, lastFrame = null, frameId = 0, paused = false;
+    let rings = [], stars = [], waves = [], backdrop, grammar;
+    let segments = 220, beadStride = 1;
+    const pointer = { id: null, down: false, moved: false, startX: 0, startY: 0, x: 0, y: 0, strength: 0 };
+    const point = { x: 0, y: 0 };
+
+    // Mulberry32: one local PRNG; no per-frame random numbers or particle physics.
+    function randomFor(value) {
+      let state = value >>> 0;
+      return () => {
+        state = (state + 0x6D2B79F5) >>> 0;
+        let x = Math.imul(state ^ (state >>> 15), state | 1);
+        x ^= x + Math.imul(x ^ (x >>> 7), x | 61);
+        return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function makeGarden() {
+      const random = randomFor(seed);
+      grammar = {
+        count: 22 + Math.floor(random() * 7),
+        tilt: random() * TAU,
+        twist: .55 + random() * 1.6,
+        eccentricity: .82 + random() * .14,
+        harmonic: 2 + Math.floor(random() * 3),
+        secondary: 3 + Math.floor(random() * 3),
+        phase: random() * TAU,
+        breath: .015 + random() * .026,
+        hue: random() * 360,
+        drift: .8 + random() * .4
+      };
+      const palette = [316, 282, 247, 343, 30, 49, 76, 133, 164];
+      const hueShift = (grammar.hue - 220) * .16;
+      rings = [];
+      for (let i = 0; i < grammar.count; i++) {
+        const u = i / (grammar.count - 1);
+        const radius = .365 + u * .655;
+        const phase = grammar.phase + u * 5.7 + (random() - .5) * .22;
+        const hue = palette[u < .3 ? i % 4 : i % palette.length] + hueShift;
+        rings.push({
+          a: radius * (1 + .065 * Math.sin(i * .91 + grammar.phase)),
+          b: radius * (grammar.eccentricity + .10 * Math.sin(i * .77 + grammar.phase)),
+          tilt: grammar.tilt + u * grammar.twist + .85 * Math.sin(i * .79 + grammar.phase),
+          phase,
+          amplitude: .013 + .084 * u * u,
+          speed: (.027 + random() * .023) * (i % 3 === 0 ? -1 : 1),
+          beads: 11 + Math.floor(random() * 9),
+          offset: random() * TAU,
+          size: .75 + random() * .65,
+          stroke: `hsla(${hue.toFixed(1)}, 43%, 64%, ${(.20 + random() * .18).toFixed(3)})`,
+          glow: `hsla(${hue.toFixed(1)}, 58%, 68%, .075)`,
+          bead: `hsla(${hue.toFixed(1)}, 48%, 71%, .67)`
+        });
+      }
+      stars = Array.from({ length: 145 }, () => ({
+        x: random(), y: random(), r: .35 + random() * .9,
+        alpha: .08 + random() * .24, phase: random() * TAU
+      }));
+      time = 0;
+      waves = [];
+      pointer.down = false;
+      pointer.id = null;
+      pointer.strength = 0;
+      canvas.classList.remove('dragging');
+      seedOutput.textContent = seed.toString(16).padStart(8, '0');
+      lastFrame = null;
+    }
+
+    function resize() {
+      width = Math.max(1, window.innerWidth);
+      height = Math.max(1, window.innerHeight);
+      // The total backing-store cap also keeps very large screens inexpensive.
+      dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR, Math.sqrt(MAX_PIXELS / (width * height)));
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      scale = Math.min(width, height) * .475;
+      segments = width < 600 ? 148 : 228;
+      beadStride = width < 600 ? 2 : 1;
+      backdrop = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, Math.max(width, height) * .64);
+      backdrop.addColorStop(0, '#111321');
+      backdrop.addColorStop(.53, '#0b0e17');
+      backdrop.addColorStop(1, '#070b11');
+      render();
+    }
+
+    function sample(ring, theta, t, out) {
+      const breathing = 1 + grammar.breath * Math.sin(t * .19 + ring.phase);
+      const harmonic = ring.amplitude * Math.sin(theta * grammar.harmonic + ring.phase + t * .16);
+      const secondary = ring.amplitude * .45 * Math.sin(theta * grammar.secondary - ring.phase - t * .12);
+      const radius = breathing + harmonic + secondary;
+      let x = ring.a * Math.cos(theta) * radius;
+      let y = ring.b * Math.sin(theta) * radius;
+      const rotation = ring.tilt + .07 * Math.sin(t * .105 + ring.phase);
+      const c = Math.cos(rotation), s = Math.sin(rotation);
+      const rotatedX = x * c - y * s;
+      y = x * s + y * c;
+      x = rotatedX;
+      // A gentle shared harmonic field ties every orbit into the same grammar.
+      x += .026 * Math.sin(y * 4 + t * .15 + grammar.phase) * ring.a;
+      y += .022 * Math.sin(x * 4 - t * .12 + grammar.phase) * ring.b;
+
+      if (pointer.strength > .0001) {
+        const dx = pointer.x - x, dy = pointer.y - y;
+        const influence = Math.exp(-(dx * dx + dy * dy) / .45) * pointer.strength * .62;
+        x += dx * influence;
+        y += dy * influence;
+      }
+      for (let i = 0; i < waves.length; i++) {
+        const wave = waves[i];
+        const age = time - wave.born;
+        const dx = x - wave.x, dy = y - wave.y;
+        const distance = Math.hypot(dx, dy);
+        const front = distance - age * .82;
+        const falloff = Math.exp(-front * front * 42) * Math.exp(-age * 1.15);
+        const amount = Math.sin(front * 22) * falloff * .115;
+        const divisor = Math.max(distance, .04);
+        x += dx / divisor * amount;
+        y += dy / divisor * amount;
+      }
+      out.x = width / 2 + x * scale;
+      out.y = height / 2 + y * scale;
+    }
+
+    function render() {
+      if (!backdrop || !grammar) return;
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = backdrop;
+      ctx.fillRect(0, 0, width, height);
+      for (let i = 0; i < stars.length; i++) {
+        const star = stars[i];
+        const shimmer = reducedMotion ? 1 : .85 + .15 * Math.sin(time * .3 + star.phase);
+        ctx.fillStyle = `rgba(179, 192, 211, ${star.alpha * shimmer})`;
+        ctx.beginPath();
+        ctx.arc(star.x * width, star.y * height, star.r, 0, TAU);
+        ctx.fill();
+      }
+      ctx.lineWidth = .8;
+      for (let i = 0; i < rings.length; i++) {
+        const ring = rings[i];
+        ctx.strokeStyle = ring.stroke;
+        ctx.beginPath();
+        for (let j = 0; j <= segments; j++) {
+          sample(ring, j / segments * TAU, time, point);
+          if (j === 0) ctx.moveTo(point.x, point.y);
+          else ctx.lineTo(point.x, point.y);
+        }
+        ctx.closePath();
+        ctx.stroke();
+        // Beads are samples of this exact curve: they own no position or velocity.
+        for (let j = 0; j < ring.beads; j += beadStride) {
+          const theta = ring.offset + j / ring.beads * TAU + time * ring.speed;
+          sample(ring, theta, time, point);
+          const r = ring.size * (.85 + .15 * Math.sin(theta * 3 + ring.phase));
+          ctx.fillStyle = ring.glow;
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, r * 3.5, 0, TAU);
+          ctx.fill();
+          ctx.fillStyle = ring.bead;
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, r, 0, TAU);
+          ctx.fill();
+        }
+      }
+    }
+
+    function requestFrame() {
+      if (!frameId && !paused && !document.hidden) frameId = requestAnimationFrame(tick);
+    }
+
+    function tick(timestamp) {
+      frameId = 0;
+      if (paused || document.hidden) { lastFrame = null; return; }
+      const dt = lastFrame === null ? 0 : Math.min((timestamp - lastFrame) / 1000, .05);
+      lastFrame = timestamp;
+      time += dt * grammar.drift * (reducedMotion ? .16 : 1);
+      const target = pointer.down ? 1 : 0;
+      pointer.strength += (target - pointer.strength) * (1 - Math.exp(-dt * 6));
+      waves = waves.filter(wave => time - wave.born < 4.5);
+      render();
+      requestFrame();
+    }
+
+    function newGarden() {
+      // A full-period 32-bit sequence guarantees a different seed every time.
+      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+      makeGarden();
+      render();
+      announcement.textContent = `New garden, seed ${seedOutput.textContent}.`;
+      requestFrame();
+    }
+
+    function resetGarden() {
+      makeGarden();
+      render();
+      announcement.textContent = `Garden ${seedOutput.textContent} restored.`;
+      requestFrame();
+    }
+
+    function setPaused(value) {
+      paused = value;
+      lastFrame = null;
+      if (frameId) cancelAnimationFrame(frameId);
+      frameId = 0;
+      pauseButton.setAttribute('aria-pressed', String(paused));
+      pauseButton.setAttribute('aria-label', `${paused ? 'Resume' : 'Pause'} animation (P)`);
+      pauseLabel.textContent = paused ? 'resume' : 'pause';
+      announcement.textContent = paused ? 'Animation paused.' : 'Animation resumed.';
+      requestFrame();
+    }
+
+    function locate(event) {
+      pointer.x = (event.clientX - width / 2) / scale;
+      pointer.y = (event.clientY - height / 2) / scale;
+    }
+
+    function pulse(x, y) {
+      if (waves.length >= MAX_WAVES) waves.shift();
+      // Start just behind the front so a pulse is visible even while paused.
+      waves.push({ x, y, born: time - .06 });
+      render();
+      requestFrame();
+    }
+
+    canvas.addEventListener('pointerdown', event => {
+      if (pointer.down || (event.pointerType === 'mouse' && event.button !== 0)) return;
+      pointer.id = event.pointerId;
+      pointer.down = true;
+      pointer.moved = false;
+      pointer.startX = event.clientX;
+      pointer.startY = event.clientY;
+      locate(event);
+      canvas.setPointerCapture(event.pointerId);
+      canvas.classList.add('dragging');
+    });
+    canvas.addEventListener('pointermove', event => {
+      if (!pointer.down || pointer.id !== event.pointerId) return;
+      if (Math.hypot(event.clientX - pointer.startX, event.clientY - pointer.startY) > 5) pointer.moved = true;
+      locate(event);
+      if (paused) { pointer.strength = 1; render(); }
+    });
+    function release(event, cancelled) {
+      if (event.pointerId !== pointer.id) return;
+      if (!cancelled) locate(event);
+      const tapped = !cancelled && !pointer.moved;
+      pointer.down = false;
+      pointer.id = null;
+      canvas.classList.remove('dragging');
+      if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
+      if (tapped) pulse(pointer.x, pointer.y);
+      else if (paused) { pointer.strength = 0; render(); }
+    }
+    canvas.addEventListener('pointerup', event => release(event, false));
+    canvas.addEventListener('pointercancel', event => release(event, true));
+    canvas.addEventListener('lostpointercapture', event => release(event, true));
+    document.getElementById('new').addEventListener('click', newGarden);
+    document.getElementById('reset').addEventListener('click', resetGarden);
+    pauseButton.addEventListener('click', () => setPaused(!paused));
+    window.addEventListener('keydown', event => {
+      if (event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
+      const target = event.target;
+      if (target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))) return;
+      if (event.code === 'Space') {
+        // Keep native Space activation on focused buttons.
+        if (target && target.tagName === 'BUTTON') return;
+        event.preventDefault();
+        newGarden();
+      } else if (event.key.toLowerCase() === 'r') {
+        event.preventDefault(); resetGarden();
+      } else if (event.key.toLowerCase() === 'p') {
+        event.preventDefault(); setPaused(!paused);
+      } else if (event.key === 'Enter' && target === canvas) {
+        event.preventDefault(); pulse(0, 0);
+      }
+    });
+    window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', () => {
+      lastFrame = null;
+      if (document.hidden) {
+        if (frameId) cancelAnimationFrame(frameId);
+        frameId = 0;
+      } else requestFrame();
+    });
+    const motionChanged = event => {
+      reducedMotion = event.matches;
+      document.getElementById('motion-note').hidden = !reducedMotion;
+      render();
+    };
+    if (motionQuery.addEventListener) motionQuery.addEventListener('change', motionChanged);
+    else if (motionQuery.addListener) motionQuery.addListener(motionChanged);
+
+    // Optional native browser tools reuse the same three visible controls.
+    const modelContext = document.modelContext;
+    if (modelContext && typeof modelContext.registerTool === 'function') {
+      const lifecycle = new AbortController();
+      const actions = {
+        new: newGarden, reset: resetGarden,
+        pause: () => setPaused(true), resume: () => setPaused(false)
+      };
+      try {
+        Promise.resolve(modelContext.registerTool({
+          name: 'control_orbit_garden',
+          title: 'Control Orbit Garden',
+          description: 'Generate a new seeded garden, restore the current seed, or pause or resume the animation.',
+          inputSchema: { type: 'object', properties: { action: { type: 'string', enum: ['new', 'reset', 'pause', 'resume'] } }, required: ['action'], additionalProperties: false },
+          annotations: { readOnlyHint: false, untrustedContentHint: false },
+          execute(input) {
+            if (!input || typeof input !== 'object' || Object.keys(input).length !== 1 || !Object.hasOwn(actions, input.action)) throw new Error('Choose new, reset, pause, or resume.');
+            actions[input.action]();
+            return { seed: seedOutput.textContent, paused };
+          }
+        }, { signal: lifecycle.signal })).catch(() => {});
+        window.addEventListener('pagehide', () => lifecycle.abort(), { once: true });
+      } catch (_) { /* The artwork also works in browsers without this API. */ }
+    }
+
+    makeGarden();
+    document.getElementById('motion-note').hidden = !reducedMotion;
+    resize();
+    requestFrame();
+  })();
+  </script>
+</body>
+</html>

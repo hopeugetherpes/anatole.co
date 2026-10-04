@@ -71,7 +71,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 p-8 md:p-16">
       <audio ref={audioRef} autoPlay loop preload="auto" style={{ display: "none" }}>
-        <source src="https://github.com/hopeugetherpes/anatole.co/raw/refs/heads/main/public/everything.mp3" type="audio/mpeg" />
+        <source src="/everything.mp3" type="audio/mpeg" />
       </audio>
 
       <a rel="me" href="https://mastodon.social/@hopeugetherpes" style={{ display: "none" }}>

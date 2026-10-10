@@ -55,7 +55,7 @@ test("production homepage and local resources are served", { timeout: 30_000 }, 
   const html = await response.text();
   assert.match(html, /<title>Anatole/);
   assert.match(html, /Hello, new friend/);
-  assert.match(html, /href="https:\/\/off-the-record\.anatole\.co"/);
+  assert.match(html, /href="https:\/\/off-the-record\.anatole\.co\/"/);
 
   const missing = await fetch(new URL("/definitely-missing", origin), { signal: AbortSignal.timeout(5_000) });
   assert.equal(missing.status, 404);

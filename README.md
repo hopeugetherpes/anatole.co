@@ -99,3 +99,10 @@ This site isn't a portfolio, and I'm not a product. It's a space where I try to 
 <p align="center">
   <a href="mailto:anatole@anatole.co">anatole@anatole.co</a>  
 <p align="center">
+
+## Standalone HTML projects
+
+- [Orbit Garden](https://anatole.co/orbit-garden.html): served from `public/orbit-garden.html`; source in `projects/orbit-garden.html`.
+- [Pictocrypt](https://anatole.co/pictocrypt.html): served from `public/pictocrypt.html`; downloadable source in `projects/pictocrypt.html`.
+
+Both pages are included automatically when deploying this repository to Vercel.

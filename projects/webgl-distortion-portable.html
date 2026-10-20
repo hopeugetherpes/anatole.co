@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Effet de distorsion WebGL interactif, autonome et utilisable hors ligne.">
+  <title>WebGL Distortion — Portable</title>
+  <!-- Offline edition of https://v0-web-gl-distortion-effect-lyart.vercel.app/
+       Original fragment and vertex shaders, embedded without modifications.
+       Open this single file directly in a WebGL-enabled browser. -->
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
+    body { font-family: monospace; }
+    main { width: 100%; height: 100vh; overflow: hidden; display: flex; justify-content: center; touch-action: none; }
+    canvas { display: block; flex: 0 0 auto; border: 0; touch-action: none; }
+    #status { position: fixed; bottom: 16px; left: 20px; right: 20px; margin: 0; padding: 12px; color: #aaa; background: #111; text-align: center; font-size: 12px; line-height: 1.5; }
+    #status[hidden] { display: none; }
+    noscript { position: fixed; inset: 30px; color: #aaa; }
+  </style>
+</head>
+<body>
+  <main aria-label="Effet de distorsion interactif">
+    <canvas id="effect" role="img" aria-label="Une grille de mots nope et une phrase oh hell yes. Déplace la souris ou glisse le doigt pour agrandir le texte et révéler ses couleurs.">Effet de distorsion : déplace la souris ou glisse le doigt sur la grille.</canvas>
+  </main>
+  <p id="status" role="status" hidden></p>
+  <noscript>Active JavaScript dans ton navigateur pour afficher l’effet interactif.</noscript>
+  <script id="vertex-shader" type="x-shader/x-vertex">
+      attribute vec2 a_position;
+      attribute vec2 a_texCoord;
+      varying vec2 v_texCoord;
+      
+      void main() {
+        gl_Position = vec4(a_position, 0.0, 1.0);
+        v_texCoord = a_texCoord;
+      }
+    </script>
+  <script id="fragment-shader" type="x-shader/x-fragment">
+      precision mediump float;
+      
+      uniform sampler2D u_texture;
+      uniform vec2 u_mouse;
+      uniform vec2 u_resolution;
+      uniform vec2 u_specialTextPos;
+      uniform bool u_mouseInside;
+      uniform float u_scale;
+      uniform float u_colorRadiusPixels;
+      uniform float u_magnifyRadiusPixels;
+      uniform float u_time;
+      
+      varying vec2 v_texCoord;
+      
+      // Simplified HSV to RGB for subtle iridescence
+      vec3 hsv2rgb(vec3 c) {
+        vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+        vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+        return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+      }
+      
+      // Enhanced scanlines effect with proper visibility
+      float scanlines(vec2 coord) {
+        float line = sin(coord.y * u_resolution.y * 1.5) * 0.15 + 0.85;
+        return line;
+      }
+      
+      // Added phosphor glow effect
+      vec3 phosphorGlow(vec3 color, vec2 coord) {
+        float glow = sin(coord.x * u_resolution.x * 3.0) * 0.02 + 0.98;
+        return color * glow;
+      }
+      
+      // Added vignette effect
+      float vignette(vec2 coord) {
+        vec2 center = coord - 0.5;
+        float dist = length(center);
+        return 1.0 - smoothstep(0.3, 0.8, dist);
+      }
+      
+      // Added subtle noise
+      float noise(vec2 coord) {
+        return fract(sin(dot(coord, vec2(12.9898, 78.233)) + u_time * 0.001) * 43758.5453) * 0.03 + 0.97;
+      }
+      
+      void main() {
+        vec2 coord = v_texCoord;
+        vec2 mouse = u_mouse / u_resolution;
+        
+        vec4 color = texture2D(u_texture, coord);
+        
+        // Only apply distortion if mouse is inside canvas
+        if (u_mouseInside) {
+          // Convert to pixel coordinates for dimension-independent calculations
+          vec2 pixelCoord = coord * u_resolution;
+          vec2 pixelMouse = u_mouse;
+          vec2 pixelSpecialTextPos = u_specialTextPos * u_resolution;
+          
+          // Calculate distance in pixels
+          float pixelDist = distance(pixelCoord, pixelMouse);
+          
+          // Use fixed pixel-based magnification radius
+          if (pixelDist < u_magnifyRadiusPixels) {
+            float factor = (u_magnifyRadiusPixels - pixelDist) / u_magnifyRadiusPixels;
+            factor = smoothstep(0.0, 1.0, factor);
+            
+            // Scale texture coordinates toward mouse position for magnification
+            vec2 direction = coord - mouse;
+            coord = mouse + direction * (1.0 - factor * 0.5);
+            
+            vec4 distortedColor = texture2D(u_texture, coord);
+            
+            // Use pixel-based elliptical distance for color dispersion
+            vec2 pixelDistortedCoord = coord * u_resolution;
+            vec2 toSpecialTextPixels = pixelDistortedCoord - pixelSpecialTextPos;
+            toSpecialTextPixels.y *= 2.5; // Fixed vertical constraint
+            float ellipticalPixelDistance = length(toSpecialTextPixels);
+            
+            // Only apply iridescence using fixed pixel threshold
+            if (ellipticalPixelDistance < u_colorRadiusPixels && 
+                distortedColor.r > 0.3 && distortedColor.r < 0.9 && factor > 0.3) {
+              
+              // Calculate angle for color dispersion
+              vec2 colorToSpecialTextPixels = pixelDistortedCoord - pixelSpecialTextPos;
+              float angle = atan(colorToSpecialTextPixels.y, colorToSpecialTextPixels.x);
+              float normalizedAngle = (angle + 3.14159) / (2.0 * 3.14159);
+              
+              float hue = normalizedAngle;
+              vec3 iridescenceColor = hsv2rgb(vec3(hue, 1.0, 1.0));
+              
+              // Fixed intensity calculation
+              float proximityFactor = 1.0 - (ellipticalPixelDistance / u_colorRadiusPixels);
+              float iridescenceIntensity = proximityFactor * factor * 0.8;
+              distortedColor.rgb = mix(distortedColor.rgb, iridescenceColor, iridescenceIntensity);
+            }
+            
+            color = distortedColor;
+          }
+        }
+        
+        // Apply CRT effects without curvature
+        color.rgb *= scanlines(v_texCoord);
+        color.rgb = phosphorGlow(color.rgb, v_texCoord);
+        color.rgb *= vignette(v_texCoord);
+        color.rgb *= noise(v_texCoord);
+        
+        gl_FragColor = color;
+      }
+    </script>
+  <script>
+(() => {
+  'use strict';
+
+  // The text layout, shader, radii and colours come from the original effect.
+  // Everything is local: no framework, image, font, import, fetch or server.
+  const canvas = document.getElementById('effect');
+  const message = document.getElementById('status');
+  const vertexSource = document.getElementById('vertex-shader').textContent;
+  const fragmentSource = document.getElementById('fragment-shader').textContent;
+  const mouse = { x: 0, y: 0, inside: false, pointerId: null };
+  let gl;
+  let resources;
+  let text;
+  let frame = 0;
+  let time = 0;
+  let contextLost = false;
+
+  function createText() {
+    const textureCanvas = document.createElement('canvas');
+    const ctx = textureCanvas.getContext('2d');
+    if (!ctx) throw new Error('Canvas 2D indisponible');
+    const desktop = window.innerWidth >= 768;
+    const availableWidth = desktop
+      ? Math.min(window.innerWidth * 0.8, 1000)
+      : Math.max(0, window.innerWidth - 40);
+    const padding = desktop ? 80 : 15;
+    ctx.font = '12px monospace';
+    const characterWidth = ctx.measureText('nope ').width / 5;
+    const availableColumns = Math.floor((availableWidth - padding * 2) / characterWidth);
+    const columns = Math.max(availableColumns - (availableColumns % 2), 20);
+    const displayWidth = columns * characterWidth + padding * 2;
+    textureCanvas.width = displayWidth;
+    textureCanvas.height = Math.max(1, window.innerHeight);
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(0, 0, textureCanvas.width, textureCanvas.height);
+    ctx.fillStyle = '#808080';
+    ctx.font = '12px monospace';
+
+    const word = 'nope ';
+    const special = 'oh hell yes';
+    const rows = Math.floor(textureCanvas.height / 16);
+    const repeats = Math.floor(columns / word.length);
+    const preceding = Math.max(0, repeats - 4);
+    let inserted = false;
+    let specialPosition = { x: 0, y: 0 };
+
+    function specialLine(row) {
+      const baseline = row * 16 + 16;
+      ctx.fillText(word.repeat(preceding) + special + ' ' + word.repeat(2), padding, baseline);
+      specialPosition = {
+        x: (padding + (preceding * word.length + 5) * characterWidth) / textureCanvas.width,
+        y: baseline / textureCanvas.height
+      };
+    }
+
+    for (let row = 0; row < rows; row++) {
+      if (!inserted && row > rows * 0.7 && row < rows - 4) {
+        specialLine(row);
+        inserted = true;
+      } else {
+        ctx.fillText(word.repeat(repeats), padding, row * 16 + 16);
+      }
+    }
+    if (!inserted && rows > 0) {
+      const row = Math.max(0, rows - 5);
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(0, row * 16, textureCanvas.width, 16);
+      ctx.fillStyle = '#808080';
+      specialLine(row);
+    }
+    return { canvas: textureCanvas, displayWidth, specialPosition };
+  }
+
+  function compile(type, source) {
+    const shader = gl.createShader(type);
+    if (!shader) throw new Error('Création du shader impossible');
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      const error = gl.getShaderInfoLog(shader);
+      gl.deleteShader(shader);
+      throw new Error(error || 'Compilation du shader impossible');
+    }
+    return shader;
+  }
+
+  function createResources() {
+    const vertex = compile(gl.VERTEX_SHADER, vertexSource);
+    const fragment = compile(gl.FRAGMENT_SHADER, fragmentSource);
+    const program = gl.createProgram();
+    if (!program) throw new Error('Création du programme impossible');
+    gl.attachShader(program, vertex);
+    gl.attachShader(program, fragment);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      throw new Error(gl.getProgramInfoLog(program) || 'Assemblage du shader impossible');
+    }
+    gl.deleteShader(vertex);
+    gl.deleteShader(fragment);
+
+    function buffer(values) {
+      const result = gl.createBuffer();
+      if (!result) throw new Error('Création du tampon impossible');
+      gl.bindBuffer(gl.ARRAY_BUFFER, result);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(values), gl.STATIC_DRAW);
+      return result;
+    }
+    const positions = buffer([-1, -1, 1, -1, -1, 1, 1, 1]);
+    const texCoords = buffer([0, 1, 1, 1, 0, 0, 1, 0]);
+    const texture = gl.createTexture();
+    if (!texture) throw new Error('Création de la texture impossible');
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    const uniform = name => gl.getUniformLocation(program, name);
+    return {
+      program, positions, texCoords, texture,
+      position: gl.getAttribLocation(program, 'a_position'),
+      texCoord: gl.getAttribLocation(program, 'a_texCoord'),
+      uniforms: {
+        texture: uniform('u_texture'), mouse: uniform('u_mouse'),
+        resolution: uniform('u_resolution'), special: uniform('u_specialTextPos'),
+        inside: uniform('u_mouseInside'), scale: uniform('u_scale'),
+        colorRadius: uniform('u_colorRadiusPixels'),
+        magnifyRadius: uniform('u_magnifyRadiusPixels'), time: uniform('u_time')
+      }
+    };
+  }
+
+  function resize() {
+    text = createText();
+    canvas.width = text.canvas.width;
+    canvas.height = text.canvas.height;
+    canvas.style.width = text.displayWidth + 'px';
+    canvas.style.height = text.canvas.height + 'px';
+    if (gl && resources && !contextLost) {
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, resources.texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, text.canvas);
+    }
+  }
+
+  function render() {
+    frame = 0;
+    if (contextLost || document.hidden || !resources) return;
+    const { uniforms: u } = resources;
+    gl.clearColor(0, 0, 0, 1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.useProgram(resources.program);
+    gl.bindBuffer(gl.ARRAY_BUFFER, resources.positions);
+    gl.enableVertexAttribArray(resources.position);
+    gl.vertexAttribPointer(resources.position, 2, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ARRAY_BUFFER, resources.texCoords);
+    gl.enableVertexAttribArray(resources.texCoord);
+    gl.vertexAttribPointer(resources.texCoord, 2, gl.FLOAT, false, 0, 0);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, resources.texture);
+    gl.uniform1i(u.texture, 0);
+    gl.uniform2f(u.mouse, mouse.x, mouse.y);
+    gl.uniform2f(u.resolution, canvas.width, canvas.height);
+    gl.uniform2f(u.special, text.specialPosition.x, text.specialPosition.y);
+    gl.uniform1i(u.inside, Number(mouse.inside));
+    gl.uniform1f(u.scale, 768 / Math.max(1, window.innerWidth));
+    gl.uniform1f(u.colorRadius, window.innerWidth < 768 ? 220 : 180);
+    gl.uniform1f(u.magnifyRadius, 140);
+    gl.uniform1f(u.time, time);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    time += 16.67;
+    frame = requestAnimationFrame(render);
+  }
+
+  function resume() {
+    if (!frame && !contextLost && !document.hidden && resources) {
+      frame = requestAnimationFrame(render);
+    }
+  }
+
+  function updatePointer(event) {
+    const bounds = canvas.getBoundingClientRect();
+    mouse.x = event.clientX - bounds.left;
+    mouse.y = event.clientY - bounds.top;
+    mouse.inside = mouse.x >= 0 && mouse.y >= 0 && mouse.x <= bounds.width && mouse.y <= bounds.height;
+  }
+
+  // Pointer events support a mouse, a trackpad, touch and a stylus.
+  canvas.addEventListener('pointerenter', updatePointer);
+  canvas.addEventListener('pointermove', updatePointer);
+  canvas.addEventListener('pointerleave', () => { mouse.inside = false; });
+  canvas.addEventListener('pointerdown', event => {
+    updatePointer(event);
+    mouse.pointerId = event.pointerId;
+    if (event.pointerType !== 'mouse') {
+      canvas.setPointerCapture(event.pointerId);
+    }
+  });
+  function endPointer(event) {
+    if (event.pointerId === mouse.pointerId) {
+      mouse.pointerId = null;
+      if (event.pointerType !== 'mouse') mouse.inside = false;
+    }
+  }
+  canvas.addEventListener('pointerup', endPointer);
+  canvas.addEventListener('pointercancel', event => {
+    endPointer(event);
+    mouse.inside = false;
+  });
+  window.addEventListener('blur', () => { mouse.inside = false; });
+  window.addEventListener('resize', resize);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+    } else resume();
+  });
+  canvas.addEventListener('webglcontextlost', event => {
+    event.preventDefault();
+    contextLost = true;
+    cancelAnimationFrame(frame);
+    frame = 0;
+    message.textContent = 'Le rendu graphique reprend dès que WebGL est disponible.';
+    message.hidden = false;
+  });
+  canvas.addEventListener('webglcontextrestored', () => {
+    contextLost = false;
+    try {
+      resources = createResources();
+      resize();
+      message.hidden = true;
+      resume();
+    } catch (error) { showError(error); }
+  });
+
+  function showError(error) {
+    console.error('WebGL Distortion:', error);
+    message.textContent = 'L’effet interactif nécessite WebGL. Essaie un navigateur avec l’accélération graphique activée.';
+    message.hidden = false;
+  }
+
+  try {
+    gl = canvas.getContext('webgl');
+    if (!gl) {
+      // Keep the original text visible even on a device without WebGL.
+      resize();
+      const ctx = canvas.getContext('2d');
+      if (ctx) ctx.drawImage(text.canvas, 0, 0);
+      window.addEventListener('resize', () => {
+        if (ctx) ctx.drawImage(text.canvas, 0, 0);
+      });
+      showError('WebGL indisponible');
+      return;
+    }
+    resources = createResources();
+    resize();
+    resume();
+  } catch (error) { showError(error); }
+})();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>Paint — Portable</title><meta name="description" content="Your Paint page, in one portable offline HTML file."><link rel="icon" href='data:image/svg+xml,%3Csvg%20xmlns="http://www.w3.org/2000/svg"%20viewBox="0%200%2032%2032"%3E%3Crect%20width="32"%20height="32"%20fill="%23000080"/%3E%3Cpath%20d="M8%2024L22%208l3%203L11%2027z"%20fill="white"/%3E%3C/svg%3E'><style>.__className_246ccd{font-family:Geist,Geist Fallback;font-style:normal}.__className_c29908{font-family:Geist Mono,Geist Mono Fallback;font-style:normal}
+
+/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,::backdrop,:after,:before{--tw-rotate-x:initial;--tw-rotate-y:initial;--tw-rotate-z:initial;--tw-skew-x:initial;--tw-skew-y:initial;--tw-border-style:solid;--tw-font-weight:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000;--tw-outline-style:solid;--tw-ease:initial}}}@layer theme{:host,:root{--font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--color-white:#fff;--spacing:.25rem;--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--font-weight-medium:500;--ease-out:cubic-bezier(0,0,.2,1);--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4,0,.2,1);--default-mono-font-family:var(--font-mono)}}@layer base{*,::backdrop,:after,:before{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}:host,html{-webkit-text-size-adjust:100%;tab-size:4;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:var(--default-mono-font-family,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring:where(:not(iframe)){outline:auto}progress{vertical-align:baseline}summary{display:list-item}menu,ol,ul{list-style:none}audio,canvas,embed,iframe,img,object,svg,video{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,optgroup,select,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab,red,red)){::placeholder{color:color-mix(in oklab,currentcolor 50%,transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}:root{--background:0 0% 100%;--foreground:0 0% 3.9%;--card:0 0% 100%;--card-foreground:0 0% 3.9%;--popover:0 0% 100%;--popover-foreground:0 0% 3.9%;--primary:0 0% 9%;--primary-foreground:0 0% 98%;--secondary:0 0% 96.1%;--secondary-foreground:0 0% 9%;--muted:0 0% 96.1%;--muted-foreground:0 0% 45.1%;--accent:0 0% 96.1%;--accent-foreground:0 0% 9%;--destructive:0 84.2% 60.2%;--destructive-foreground:0 0% 98%;--border:0 0% 89.8%;--input:0 0% 89.8%;--ring:0 0% 3.9%;--chart-1:12 76% 61%;--chart-2:173 58% 39%;--chart-3:197 37% 24%;--chart-4:43 74% 66%;--chart-5:27 87% 67%;--radius:.5rem;--sidebar-background:0 0% 98%;--sidebar-foreground:240 5.3% 26.1%;--sidebar-primary:240 5.9% 10%;--sidebar-primary-foreground:0 0% 98%;--sidebar-accent:240 4.8% 95.9%;--sidebar-accent-foreground:240 5.9% 10%;--sidebar-border:220 13% 91%;--sidebar-ring:217.2 91.2% 59.8%}.dark{--background:0 0% 3.9%;--foreground:0 0% 98%;--card:0 0% 3.9%;--card-foreground:0 0% 98%;--popover:0 0% 3.9%;--popover-foreground:0 0% 98%;--primary:0 0% 98%;--primary-foreground:0 0% 9%;--secondary:0 0% 14.9%;--secondary-foreground:0 0% 98%;--muted:0 0% 14.9%;--muted-foreground:0 0% 63.9%;--accent:0 0% 14.9%;--accent-foreground:0 0% 98%;--destructive:0 62.8% 30.6%;--destructive-foreground:0 0% 98%;--border:0 0% 14.9%;--input:0 0% 14.9%;--ring:0 0% 83.1%;--chart-1:220 70% 50%;--chart-2:160 60% 45%;--chart-3:30 80% 55%;--chart-4:280 65% 60%;--chart-5:340 75% 55%;--sidebar-background:240 5.9% 10%;--sidebar-foreground:240 4.8% 95.9%;--sidebar-primary:224.3 76.3% 48%;--sidebar-primary-foreground:0 0% 100%;--sidebar-accent:240 3.7% 15.9%;--sidebar-accent-foreground:240 4.8% 95.9%;--sidebar-border:240 3.7% 15.9%;--sidebar-ring:217.2 91.2% 59.8%}[role=button]:not(:disabled),button:not(:disabled){cursor:pointer}*{border-color:hsl(var(--border))}body{background-color:hsl(var(--background));color:hsl(var(--foreground))}}@layer components;@layer utilities{.absolute{position:absolute}.mr-4{margin-right:calc(var(--spacing) * 4)}.mb-0\.5{margin-bottom:calc(var(--spacing) * .5)}.flex{display:flex}.inline-flex{display:inline-flex}.h-5{height:calc(var(--spacing) * 5)}.h-6{height:calc(var(--spacing) * 6)}.h-7{height:calc(var(--spacing) * 7)}.h-9{height:calc(var(--spacing) * 9)}.h-10{height:calc(var(--spacing) * 10)}.h-11{height:calc(var(--spacing) * 11)}.h-screen{height:100vh}.w-5{width:calc(var(--spacing) * 5)}.w-6{width:calc(var(--spacing) * 6)}.w-7{width:calc(var(--spacing) * 7)}.w-8{width:calc(var(--spacing) * 8)}.w-10{width:calc(var(--spacing) * 10)}.min-w-0{min-width:0}.grow{flex-grow:1}.transform{transform:var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,)}.cursor-move{cursor:move}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.gap-1{gap:var(--spacing)}.gap-2{gap:calc(var(--spacing) * 2)}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.rounded-md{border-radius:calc(var(--radius) - 2px)}.border{border-style:var(--tw-border-style);border-width:1px}.border-2{border-style:var(--tw-border-style);border-width:2px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-r{border-right-style:var(--tw-border-style);border-right-width:1px}.border-gray-400{border-color:#9ca3af}.border-input{border-color:hsl(var(--input))}.border-white{border-color:var(--color-white)}.bg-background{background-color:hsl(var(--background))}.bg-blue-900{background-color:#1e3a8a}.bg-destructive{background-color:hsl(var(--destructive))}.bg-gray-200{background-color:#e5e7eb}.bg-gray-300{background-color:#d1d5db}.bg-primary{background-color:hsl(var(--primary))}.bg-secondary{background-color:hsl(var(--secondary))}.bg-teal-600{background-color:#0d9488}.p-0{padding:0}.p-0\.5{padding:calc(var(--spacing) * .5)}.p-1{padding:var(--spacing)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-4{padding-inline:calc(var(--spacing) * 4)}.px-8{padding-inline:calc(var(--spacing) * 8)}.py-1{padding-block:var(--spacing)}.py-2{padding-block:calc(var(--spacing) * 2)}.font-sans{font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.whitespace-nowrap{white-space:nowrap}.text-destructive-foreground{color:hsl(var(--destructive-foreground))}.text-primary{color:hsl(var(--primary))}.text-primary-foreground{color:hsl(var(--primary-foreground))}.text-secondary-foreground{color:hsl(var(--secondary-foreground))}.text-white{color:var(--color-white)}.underline-offset-4{text-underline-offset:4px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.accent-foreground{accent-color:hsl(var(--foreground))}.shadow-md{--tw-shadow:0 4px 6px -1px var(--tw-shadow-color,#0000001a),0 2px 4px -2px var(--tw-shadow-color,#0000001a)}.ring,.ring-1,.shadow-md{box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.ring,.ring-1{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor)}.inset-shadow-sm{--tw-inset-shadow:inset 0 2px 4px var(--tw-inset-shadow-color,#0000000d);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.ring-gray-600{--tw-ring-color:#4b5563}.ring-offset-background{--tw-ring-offset-color:hsl(var(--background))}.outline{outline-style:var(--tw-outline-style);outline-width:1px}.transition-colors{transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.ease-out{--tw-ease:var(--ease-out);transition-timing-function:var(--ease-out);animation-timing-function:cubic-bezier(0,0,.2,1)}@media (hover:hover){.hover\:bg-accent:hover{background-color:hsl(var(--accent))}.hover\:bg-blue-700:hover{background-color:#1d4ed8}.hover\:bg-destructive\/90:hover{background-color:hsl(var(--destructive))}@supports (color:color-mix(in lab,red,red)){.hover\:bg-destructive\/90:hover{background-color:color-mix(in oklab,hsl(var(--destructive)) 90%,transparent)}}.hover\:bg-primary\/90:hover{background-color:hsl(var(--primary))}@supports (color:color-mix(in lab,red,red)){.hover\:bg-primary\/90:hover{background-color:color-mix(in oklab,hsl(var(--primary)) 90%,transparent)}}.hover\:bg-secondary\/80:hover{background-color:hsl(var(--secondary))}@supports (color:color-mix(in lab,red,red)){.hover\:bg-secondary\/80:hover{background-color:color-mix(in oklab,hsl(var(--secondary)) 80%,transparent)}}.hover\:text-accent-foreground:hover{color:hsl(var(--accent-foreground))}.hover\:underline:hover{text-decoration-line:underline}}.focus-visible\:ring-2:focus-visible{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.focus-visible\:ring-ring:focus-visible{--tw-ring-color:hsl(var(--ring))}.focus-visible\:ring-offset-2:focus-visible{--tw-ring-offset-width:2px;--tw-ring-offset-shadow:var(--tw-ring-inset,) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)}.focus-visible\:outline-hidden:focus-visible{--tw-outline-style:none;outline-style:none}@media (forced-colors:active){.focus-visible\:outline-hidden:focus-visible{outline-offset:2px;outline:2px solid #0000}}.disabled\:pointer-events-none:disabled{pointer-events:none}.disabled\:opacity-50:disabled{opacity:.5}.\[\&_svg\]\:pointer-events-none svg{pointer-events:none}.\[\&_svg\]\:size-4 svg{width:calc(var(--spacing) * 4);height:calc(var(--spacing) * 4)}.\[\&_svg\]\:shrink-0 svg{flex-shrink:0}.text-balance{text-wrap:balance}}@keyframes enter{0%{opacity:var(--tw-enter-opacity,1);transform:translate3d(var(--tw-enter-translate-x,0),var(--tw-enter-translate-y,0),0) scale3d(var(--tw-enter-scale,1),var(--tw-enter-scale,1),var(--tw-enter-scale,1)) rotate(var(--tw-enter-rotate,0))}}@keyframes exit{to{opacity:var(--tw-exit-opacity,1);transform:translate3d(var(--tw-exit-translate-x,0),var(--tw-exit-translate-y,0),0) scale3d(var(--tw-exit-scale,1),var(--tw-exit-scale,1),var(--tw-exit-scale,1)) rotate(var(--tw-exit-rotate,0))}}@property --tw-rotate-x{syntax:"*";inherits:false}@property --tw-rotate-y{syntax:"*";inherits:false}@property --tw-rotate-z{syntax:"*";inherits:false}@property --tw-skew-x{syntax:"*";inherits:false}@property --tw-skew-y{syntax:"*";inherits:false}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-outline-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-ease{syntax:"*";inherits:false}
+[hidden]{display:none!important}html,body{margin:0;height:100%;overflow:hidden}
+button{cursor:pointer}button:focus-visible{outline:2px dotted #000;outline-offset:-3px}
+#paint-window{max-width:calc(100vw - 16px);max-height:calc(100dvh - 16px);display:flex;flex-direction:column}
+#paint-titlebar{flex:none;touch-action:none;user-select:none;gap:10px}
+#paint-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#paint-menubar{display:flex;gap:8px;flex:none;user-select:none}
+#paint-menubar button{font-size:14px;padding:0 4px;background:transparent;border:0}
+#paint-menubar button:hover,#paint-menubar button[aria-expanded=true]{background:#000080;color:white}
+#paint-workarea{min-height:0;flex:1 1 500px}#paint-tools{flex:none;user-select:none}
+#paint-viewport{min-width:0;min-height:0;max-height:500px;background:#808080;overscroll-behavior:contain}
+#paint-canvas{display:block;max-width:none;max-height:none;touch-action:none;background:white}
+.tool-active{background:#d1d5db;border:1px solid #9ca3af;box-shadow:inset 0 1px 3px #0002}
+#paint-palette{flex:none}#paint-palette button{flex:none}
+#paint-menu{position:absolute;z-index:20;min-width:230px;max-width:calc(100% - 8px);background:#d1d5db;border:2px outset white;box-shadow:3px 3px 0 #0007;padding:3px;font-size:13px}
+#paint-menu button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:22px;text-align:left;padding:5px 12px;border:0;background:transparent;white-space:nowrap}
+#paint-menu button:hover:not(:disabled),#paint-menu button:focus-visible{background:#000080;color:white;outline:0}
+#paint-menu button:disabled{color:#777;cursor:default}#paint-menu hr{border:0;border-top:1px solid #999;margin:3px}
+.menu-shortcut{font-size:11px;color:inherit;opacity:.7}
+#paint-statusbar{display:flex;justify-content:space-between;gap:12px;flex:none;font-size:11px;line-height:20px;padding:0 6px;border-top:1px solid #9ca3af;background:#d1d5db;white-space:nowrap}
+#paint-status{flex:1;overflow:hidden;text-overflow:ellipsis}
+#paint-restore{position:fixed;bottom:12px;left:12px;padding:6px 24px;background:#d1d5db;border:2px outset white;box-shadow:2px 2px #0005;font-size:14px}
+#paint-window.is-maximized{left:8px;top:8px;transform:none;width:calc(100vw - 16px);height:calc(100dvh - 16px)}
+#paint-window.is-maximized #paint-workarea{flex:1}#paint-window.is-maximized #paint-viewport{height:auto!important;max-height:none}
+@media(max-width:480px){#paint-menubar{gap:0}#paint-menubar button{font-size:12px}#paint-coordinates{display:none}#paint-menu button{gap:12px;padding:6px}#paint-statusbar{font-size:10px}}
+</style></head><body class="font-sans antialiased"><div class="h-screen bg-teal-600 overflow-hidden" id="paint-desktop"><div class="absolute bg-gray-200 border-2 border-white shadow-md" style="width:800px;left:50%;top:50%;transform:translate(-50%,-50%)" id="paint-window"><div class="bg-blue-900 text-white px-2 py-1 flex justify-between items-center cursor-move" id="paint-titlebar"><span id="paint-title">untitled - Paint</span><div class="flex gap-1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground h-5 w-5 p-0 min-w-0 text-white hover:bg-blue-700" id="paint-minimize" aria-label="Minimize" title="Minimize" type="button">_</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground h-5 w-5 p-0 min-w-0 text-white hover:bg-blue-700" id="paint-maximize" aria-label="Maximize" title="Maximize" type="button">□</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground h-5 w-5 p-0 min-w-0 text-white hover:bg-blue-700" id="paint-close" aria-label="Close" title="Close" type="button">×</button></div></div><div class="bg-gray-300 px-2 py-1 text-sm" id="paint-menubar" role="menubar" aria-label="Paint menus"><button type="button" role="menuitem" data-menu="file" aria-haspopup="menu" aria-expanded="false">File</button><button type="button" role="menuitem" data-menu="edit" aria-haspopup="menu" aria-expanded="false">Edit</button><button type="button" role="menuitem" data-menu="view" aria-haspopup="menu" aria-expanded="false">View</button><button type="button" role="menuitem" data-menu="image" aria-haspopup="menu" aria-expanded="false">Image</button><button type="button" role="menuitem" data-menu="options" aria-haspopup="menu" aria-expanded="false">Options</button><button type="button" role="menuitem" data-menu="help" aria-haspopup="menu" aria-expanded="false">Help</button></div><div class="flex" id="paint-workarea"><div class="w-8 bg-gray-300 p-0.5 border-r border-gray-400" id="paint-tools" role="toolbar" aria-label="Drawing tools"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-7 h-7 p-0 min-w-0 mb-0.5  tool-active" type="button" data-tool="brush" aria-label="Brush" title="Brush (B)" aria-pressed="true"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 12l-8-8-6 6c-2 2-2 5 0 7s5 2 7 0l7-7"></path><path d="M17 7l3 3"></path></svg></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-7 h-7 p-0 min-w-0 mb-0.5" type="button" data-tool="eraser" aria-label="Eraser" title="Eraser (E)" aria-pressed="false"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M20 20H7L3 16C2 15 2 13 3 12L13 2L22 11L20 20Z"></path><path d="M17 17L7 7"></path></svg></button></div><div class="grow overflow-auto border border-gray-400" style="width:724px" id="paint-viewport"><canvas width="2000" height="2000" id="paint-canvas" aria-label="Drawing canvas" role="img" tabindex="0">Your browser needs Canvas support to use Paint.</canvas></div></div><div class="flex bg-gray-300 p-1 border-t border-gray-400" id="paint-palette" role="group" aria-label="Colour palette"><div class="flex flex-wrap gap-1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0 ring-1 ring-gray-600" style="background-color:#000000" data-color="#000000" aria-label="Colour #000000" aria-pressed="true" title="#000000" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#808080" data-color="#808080" aria-label="Colour #808080" aria-pressed="false" title="#808080" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#800000" data-color="#800000" aria-label="Colour #800000" aria-pressed="false" title="#800000" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#808000" data-color="#808000" aria-label="Colour #808000" aria-pressed="false" title="#808000" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#008000" data-color="#008000" aria-label="Colour #008000" aria-pressed="false" title="#008000" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#008080" data-color="#008080" aria-label="Colour #008080" aria-pressed="false" title="#008080" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#000080" data-color="#000080" aria-label="Colour #000080" aria-pressed="false" title="#000080" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#800080" data-color="#800080" aria-label="Colour #800080" aria-pressed="false" title="#800080" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#808040" data-color="#808040" aria-label="Colour #808040" aria-pressed="false" title="#808040" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#004040" data-color="#004040" aria-label="Colour #004040" aria-pressed="false" title="#004040" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#0080FF" data-color="#0080FF" aria-label="Colour #0080FF" aria-pressed="false" title="#0080FF" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#004080" data-color="#004080" aria-label="Colour #004080" aria-pressed="false" title="#004080" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#8000FF" data-color="#8000FF" aria-label="Colour #8000FF" aria-pressed="false" title="#8000FF" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#804000" data-color="#804000" aria-label="Colour #804000" aria-pressed="false" title="#804000" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#FFFFFF" data-color="#FFFFFF" aria-label="Colour #FFFFFF" aria-pressed="false" title="#FFFFFF" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#C0C0C0" data-color="#C0C0C0" aria-label="Colour #C0C0C0" aria-pressed="false" title="#C0C0C0" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#FF0000" data-color="#FF0000" aria-label="Colour #FF0000" aria-pressed="false" title="#FF0000" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#FFFF00" data-color="#FFFF00" aria-label="Colour #FFFF00" aria-pressed="false" title="#FFFF00" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#00FF00" data-color="#00FF00" aria-label="Colour #00FF00" aria-pressed="false" title="#00FF00" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#00FFFF" data-color="#00FFFF" aria-label="Colour #00FFFF" aria-pressed="false" title="#00FFFF" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#0000FF" data-color="#0000FF" aria-label="Colour #0000FF" aria-pressed="false" title="#0000FF" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#FF00FF" data-color="#FF00FF" aria-label="Colour #FF00FF" aria-pressed="false" title="#FF00FF" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#FFFF80" data-color="#FFFF80" aria-label="Colour #FFFF80" aria-pressed="false" title="#FFFF80" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#00FF80" data-color="#00FF80" aria-label="Colour #00FF80" aria-pressed="false" title="#00FF80" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#80FFFF" data-color="#80FFFF" aria-label="Colour #80FFFF" aria-pressed="false" title="#80FFFF" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#8080FF" data-color="#8080FF" aria-label="Colour #8080FF" aria-pressed="false" title="#8080FF" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#FF0080" data-color="#FF0080" aria-label="Colour #FF0080" aria-pressed="false" title="#FF0080" type="button"></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground w-6 h-6 p-0 min-w-0" style="background-color:#FF8040" data-color="#FF8040" aria-label="Colour #FF8040" aria-pressed="false" title="#FF8040" type="button"></button></div></div><div id="paint-menu" role="menu" hidden=""></div><div id="paint-statusbar"><span id="paint-status" role="status">Loading…</span><span id="paint-coordinates">0, 0</span><span id="paint-dimensions">2000 × 2000 px</span></div></div></div><next-route-announcer style="position: absolute;"><template shadowrootmode="open"><div aria-live="assertive" id="__next-route-announcer__" role="alert" style="position: absolute; border: 0px; height: 1px; margin: -1px; padding: 0px; width: 1px; clip: rect(0px, 0px, 0px, 0px); overflow: hidden; white-space: nowrap; overflow-wrap: normal;"></div></template></next-route-announcer><button id="paint-restore" type="button" hidden="">Paint</button><input id="paint-open" type="file" accept=".png,.jpg,.jpeg,.webp,.bmp,.gif,.avif" hidden=""><input id="paint-color" type="color" value="#000000" hidden=""><noscript>Paint needs JavaScript. Enable it in your browser, then open this file again.</noscript><script id="paint-document" type="application/json">{"version":1,"image":null,"filename":"untitled.png"}</script><script id="paint-engine">/* Standalone adaptation of the supplied Paint page. No external dependencies. */
+(() => {
+  'use strict';
+  // Capture the clean, executable document before any UI changes. HTML exports
+  // reuse this template and embed only the current PNG and its filename.
+  const template = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const $ = id => document.getElementById(id);
+  const canvas = $('paint-canvas');
+  const ctx = canvas.getContext('2d');
+  const win = $('paint-window');
+  const title = $('paint-title');
+  const status = $('paint-status');
+  const popup = $('paint-menu');
+  const viewport = $('paint-viewport');
+  const MAX_SIDE = 4096;
+  const MAX_AREA = 16777216;
+  const MAX_HISTORY_BYTES = 24 * 1024 * 1024;
+  let tool = 'brush', color = '#000000', brushSize = 2, eraserSize = 20;
+  let drawing = null, dragging = null, zoom = 1, maximized = false;
+  let filename = 'untitled.png', history = [], historyIndex = -1;
+  let savedImage = '', busy = true, menuOwner = null, normalBounds = null;
+
+  function setStatus(text) { status.textContent = text; }
+  function png() { return canvas.toDataURL('image/png'); }
+  function dirty() { return historyIndex >= 0 && history[historyIndex].data !== savedImage; }
+  function updateTitle() {
+    title.textContent = (dirty() ? '* ' : '') + filename.replace(/\.[^.]+$/, '') + ' - Paint';
+    document.title = title.textContent;
+    $('paint-dimensions').textContent = canvas.width + ' × ' + canvas.height + ' px';
+  }
+  function updateScale() {
+    canvas.style.width = canvas.width * zoom + 'px';
+    canvas.style.height = canvas.height * zoom + 'px';
+  }
+  function remember() {
+    const data = png();
+    if (historyIndex >= 0 && history[historyIndex].data === data) return;
+    history = history.slice(0, historyIndex + 1);
+    history.push({data, width: canvas.width, height: canvas.height});
+    let bytes = history.reduce((sum, entry) => sum + entry.data.length * 2, 0);
+    while (history.length > 1 && (history.length > 21 || bytes > MAX_HISTORY_BYTES)) {
+      bytes -= history.shift().data.length * 2;
+    }
+    historyIndex = history.length - 1;
+    updateTitle();
+  }
+  function freshHistory() {
+    history = []; historyIndex = -1;
+    remember(); savedImage = history[0].data; updateTitle();
+  }
+  function white() {
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+  function imageFrom(src) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error('The image could not be opened.'));
+      img.src = src;
+    });
+  }
+  async function undoRedo(delta) {
+    if (busy || drawing) return;
+    const next = historyIndex + delta;
+    if (next < 0 || next >= history.length) return;
+    busy = true;
+    try {
+      const entry = history[next], img = await imageFrom(entry.data);
+      canvas.width = entry.width; canvas.height = entry.height;
+      ctx.drawImage(img, 0, 0); historyIndex = next;
+      updateScale(); updateTitle(); setStatus(delta < 0 ? 'Undo' : 'Redo');
+    } catch (error) { alert(error.message); }
+    finally { busy = false; }
+  }
+  function mayDiscard() {
+    return !dirty() || confirm('This drawing has unsaved changes. Continue without saving them?');
+  }
+  function newDrawing() {
+    if (!mayDiscard()) return;
+    canvas.width = 2000; canvas.height = 2000; white();
+    filename = 'untitled.png'; zoom = 1; updateScale(); freshHistory();
+    viewport.scrollTo(0, 0); setStatus('New image');
+  }
+  function download(blob, name) {
+    const url = URL.createObjectURL(blob), link = document.createElement('a');
+    link.href = url; link.download = name;
+    document.body.appendChild(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  }
+  function safeFilename(value) {
+    return value.replace(/[\\/:*?"<>|\u0000-\u001f]/g, '_').slice(0, 120) || 'untitled.png';
+  }
+  function savePng() {
+    const imageAtSave = history[historyIndex].data;
+    const nameAtSave = filename.replace(/\.[^.]+$/, '') + '.png';
+    canvas.toBlob(blob => {
+      if (!blob) { alert('The PNG could not be created.'); return; }
+      download(blob, nameAtSave); savedImage = imageAtSave;
+      updateTitle(); setStatus('PNG downloaded');
+    }, 'image/png');
+  }
+  function savePortable() {
+    const doc = new DOMParser().parseFromString(template, 'text/html');
+    doc.getElementById('paint-document').textContent = JSON.stringify({
+      version: 1, image: png(), filename
+    }).replace(/</g, '\\u003c');
+    const html = '<!DOCTYPE html>\n' + doc.documentElement.outerHTML;
+    download(new Blob([html], {type: 'text/html;charset=utf-8'}),
+      filename.replace(/\.[^.]+$/, '') + '-Paint.html');
+    savedImage = history[historyIndex].data;
+    updateTitle(); setStatus('Portable HTML downloaded with your drawing');
+  }
+  function chooseOpen() { if (mayDiscard()) $('paint-open').click(); }
+  $('paint-open').addEventListener('change', async event => {
+    const file = event.target.files[0]; event.target.value = '';
+    if (!file) return;
+    if (file.size > 50 * 1024 * 1024) { alert('Please choose an image smaller than 50 MB.'); return; }
+    if (!/\.(png|jpe?g|webp|bmp|gif|avif)$/i.test(file.name)) {
+      alert('Choose a PNG, JPEG, WebP, BMP, GIF or AVIF image.'); return;
+    }
+    busy = true;
+    const url = URL.createObjectURL(file);
+    try {
+      const img = await imageFrom(url);
+      if (img.naturalWidth > MAX_SIDE || img.naturalHeight > MAX_SIDE ||
+          img.naturalWidth * img.naturalHeight > MAX_AREA) {
+        throw new Error('Please choose an image no larger than 4096 × 4096 pixels.');
+      }
+      canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+      white(); ctx.drawImage(img, 0, 0);
+      filename = safeFilename(file.name).replace(/\.[^.]+$/, '') + '.png';
+      zoom = 1; updateScale(); freshHistory(); viewport.scrollTo(0, 0);
+      setStatus('Image opened');
+    } catch (error) { alert(error.message); }
+    finally { URL.revokeObjectURL(url); busy = false; }
+  });
+
+  function selectTool(next) {
+    tool = next;
+    document.querySelectorAll('[data-tool]').forEach(button => {
+      const active = button.dataset.tool === tool;
+      button.setAttribute('aria-pressed', String(active));
+      button.classList.toggle('tool-active', active);
+    });
+    canvas.style.cursor = tool === 'eraser' ? 'cell' : 'crosshair';
+    setStatus((tool === 'brush' ? 'Brush · ' + brushSize : 'Eraser · ' + eraserSize) + ' px');
+  }
+  document.querySelectorAll('[data-tool]').forEach(button =>
+    button.addEventListener('click', () => selectTool(button.dataset.tool)));
+  function selectColor(value) {
+    color = value;
+    document.querySelectorAll('[data-color]').forEach(button => {
+      const active = button.dataset.color.toUpperCase() === color.toUpperCase();
+      button.classList.toggle('ring-1', active); button.classList.toggle('ring-gray-600', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    setStatus('Colour: ' + color);
+  }
+  document.querySelectorAll('[data-color]').forEach(button =>
+    button.addEventListener('click', () => selectColor(button.dataset.color)));
+  $('paint-color').addEventListener('input', event => selectColor(event.target.value));
+  function point(event) {
+    const rect = canvas.getBoundingClientRect();
+    return {x: (event.clientX - rect.left) * canvas.width / rect.width,
+      y: (event.clientY - rect.top) * canvas.height / rect.height};
+  }
+  function drawLine(from, to) {
+    ctx.strokeStyle = tool === 'eraser' ? '#FFFFFF' : color;
+    ctx.fillStyle = ctx.strokeStyle;
+    ctx.lineWidth = tool === 'eraser' ? eraserSize : brushSize;
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.lineTo(to.x, to.y); ctx.stroke();
+    if (from.x === to.x && from.y === to.y) {
+      ctx.beginPath(); ctx.arc(to.x, to.y, ctx.lineWidth / 2, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+  canvas.addEventListener('pointerdown', event => {
+    if (busy || drawing || event.button !== 0) return;
+    event.preventDefault(); closeMenu();
+    canvas.setPointerCapture(event.pointerId);
+    drawing = {id: event.pointerId, last: point(event)};
+    drawLine(drawing.last, drawing.last);
+  });
+  canvas.addEventListener('pointermove', event => {
+    const current = point(event);
+    $('paint-coordinates').textContent = Math.round(current.x) + ', ' + Math.round(current.y);
+    if (drawing && drawing.id === event.pointerId) {
+      drawLine(drawing.last, current); drawing.last = current;
+    }
+  });
+  function endDrawing(event) {
+    if (!drawing || (event && event.pointerId !== drawing.id)) return;
+    const id = drawing.id;
+    drawing = null;
+    if (canvas.hasPointerCapture(id)) canvas.releasePointerCapture(id);
+    remember();
+  }
+  canvas.addEventListener('pointerup', endDrawing);
+  canvas.addEventListener('pointercancel', endDrawing);
+  canvas.addEventListener('lostpointercapture', endDrawing);
+  canvas.addEventListener('contextmenu', event => event.preventDefault());
+
+  function clearImage() {
+    if (confirm('Clear the image? You can undo this action.')) { white(); remember(); setStatus('Image cleared'); }
+  }
+  function transformImage(action) {
+    const copy = document.createElement('canvas');
+    copy.width = canvas.width; copy.height = canvas.height;
+    copy.getContext('2d').putImageData(ctx.getImageData(0, 0, canvas.width, canvas.height), 0, 0);
+    if (action === 'rotate') {
+      canvas.width = copy.height; canvas.height = copy.width;
+      ctx.save(); ctx.translate(canvas.width, 0); ctx.rotate(Math.PI / 2);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.save();
+      ctx.translate(action === 'flip-h' ? canvas.width : 0, action === 'flip-v' ? canvas.height : 0);
+      ctx.scale(action === 'flip-h' ? -1 : 1, action === 'flip-v' ? -1 : 1);
+    }
+    ctx.drawImage(copy, 0, 0); ctx.restore(); updateScale(); remember(); setStatus('Image transformed');
+  }
+  function setSize() {
+    const value = prompt('Size in pixels (1–100):', String(tool === 'eraser' ? eraserSize : brushSize));
+    if (value === null) return;
+    const number = Number(value);
+    if (!Number.isInteger(number) || number < 1 || number > 100) {
+      alert('Enter a whole number from 1 to 100.'); return;
+    }
+    if (tool === 'eraser') eraserSize = number; else brushSize = number;
+    selectTool(tool);
+  }
+  function setZoom(value) { zoom = value; updateScale(); setStatus('Zoom: ' + Math.round(zoom * 100) + '%'); }
+  function toggleMaximize() {
+    closeMenu();
+    if (!maximized) {
+      normalBounds = win.getAttribute('style'); win.removeAttribute('style');
+      win.classList.add('is-maximized');
+    } else {
+      win.classList.remove('is-maximized'); win.setAttribute('style', normalBounds || '');
+    }
+    maximized = !maximized;
+  }
+  function minimize() { win.hidden = true; $('paint-restore').hidden = false; closeMenu(); }
+  $('paint-restore').addEventListener('click', () => { win.hidden = false; $('paint-restore').hidden = true; });
+  $('paint-minimize').addEventListener('click', minimize);
+  $('paint-maximize').addEventListener('click', toggleMaximize);
+  $('paint-close').addEventListener('click', () => { if (mayDiscard()) minimize(); });
+  const titlebar = $('paint-titlebar');
+  titlebar.addEventListener('dblclick', event => { if (!event.target.closest('button')) toggleMaximize(); });
+  titlebar.addEventListener('pointerdown', event => {
+    if (event.button !== 0 || maximized || event.target.closest('button')) return;
+    event.preventDefault();
+    const rect = win.getBoundingClientRect();
+    win.style.transform = 'none'; win.style.left = rect.left + 'px'; win.style.top = rect.top + 'px';
+    dragging = {id: event.pointerId, x: event.clientX - rect.left, y: event.clientY - rect.top};
+    titlebar.setPointerCapture(event.pointerId);
+  });
+  titlebar.addEventListener('pointermove', event => {
+    if (!dragging || dragging.id !== event.pointerId) return;
+    win.style.left = Math.max(0, Math.min(innerWidth - 80, event.clientX - dragging.x)) + 'px';
+    win.style.top = Math.max(0, Math.min(innerHeight - 35, event.clientY - dragging.y)) + 'px';
+  });
+  function endDrag() { dragging = null; }
+  titlebar.addEventListener('pointerup', endDrag);
+  titlebar.addEventListener('pointercancel', endDrag);
+  titlebar.addEventListener('lostpointercapture', endDrag);
+
+  const actions = {
+    new: newDrawing, open: chooseOpen, save: savePng, portable: savePortable,
+    undo: () => undoRedo(-1), redo: () => undoRedo(1), clear: clearImage,
+    maximize: toggleMaximize, zoom100: () => setZoom(1), zoom50: () => setZoom(.5), zoom25: () => setZoom(.25),
+    rotate: () => transformImage('rotate'), flipH: () => transformImage('flip-h'), flipV: () => transformImage('flip-v'),
+    size: setSize, color: () => $('paint-color').click(),
+    help: () => alert('Draw with the brush or erase with the eraser. Choose a colour below the canvas.\n\nB: brush · E: eraser\nCtrl/Cmd+Z: undo · Ctrl/Cmd+Shift+Z: redo\nCtrl/Cmd+O: open an image\nCtrl/Cmd+S: save as PNG\nCtrl/Cmd+Shift+S: save a portable HTML with the current drawing\n\nUse Options to change brush size. Scroll to reach the rest of the image.'),
+    about: () => alert('Paint — Portable\n\nBased on your Paint page at paint.anatole.co.\nWorks directly from one HTML file, with no installation or Internet connection.\nImages stay on your device. Save your drawing before closing this tab.')
+  };
+  const menus = {
+    File: [['New', 'new', 'Ctrl+N'], ['Open…', 'open', 'Ctrl+O'], null,
+      ['Save as PNG', 'save', 'Ctrl+S'], ['Save portable HTML…', 'portable', 'Ctrl+Shift+S']],
+    Edit: [['Undo', 'undo', 'Ctrl+Z'], ['Redo', 'redo', 'Ctrl+Shift+Z'], null, ['Clear image…', 'clear']],
+    View: [['Maximize / Restore', 'maximize'], null, ['100%', 'zoom100'], ['50%', 'zoom50'], ['25%', 'zoom25']],
+    Image: [['Rotate clockwise', 'rotate'], ['Flip horizontally', 'flipH'], ['Flip vertically', 'flipV'], null, ['Clear image…', 'clear']],
+    Options: [['Brush / eraser size…', 'size'], ['Choose colour…', 'color']],
+    Help: [['Using Paint…', 'help'], ['About Paint…', 'about']]
+  };
+  function closeMenu() {
+    popup.hidden = true;
+    if (menuOwner) menuOwner.setAttribute('aria-expanded', 'false');
+    menuOwner = null;
+  }
+  function showMenu(button) {
+    if (menuOwner === button && !popup.hidden) { closeMenu(); return; }
+    closeMenu(); menuOwner = button; button.setAttribute('aria-expanded', 'true'); popup.replaceChildren();
+    for (const entry of menus[button.textContent]) {
+      if (!entry) { const hr = document.createElement('hr'); hr.setAttribute('role', 'separator'); popup.append(hr); continue; }
+      const item = document.createElement('button'); item.type = 'button'; item.setAttribute('role', 'menuitem');
+      item.dataset.action = entry[1];
+      const label = document.createElement('span'); label.textContent = entry[0]; item.append(label);
+      if (entry[2]) { const key = document.createElement('span'); key.className = 'menu-shortcut'; key.textContent = entry[2]; item.append(key); }
+      item.disabled = busy || (entry[1] === 'undo' && historyIndex <= 0) || (entry[1] === 'redo' && historyIndex >= history.length - 1);
+      item.addEventListener('click', () => { closeMenu(); if (!busy) actions[entry[1]](); });
+      popup.append(item);
+    }
+    popup.hidden = false;
+    const buttonRect = button.getBoundingClientRect(), windowRect = win.getBoundingClientRect();
+    popup.style.top = buttonRect.bottom - windowRect.top + 'px';
+    popup.style.left = Math.min(buttonRect.left - windowRect.left, win.clientWidth - popup.offsetWidth - 4) + 'px';
+    popup.querySelector('button:not(:disabled)')?.focus();
+  }
+  document.querySelectorAll('[data-menu]').forEach(button => {
+    button.addEventListener('click', () => showMenu(button));
+    button.addEventListener('keydown', event => { if (event.key === 'ArrowDown') { event.preventDefault(); showMenu(button); } });
+  });
+  popup.addEventListener('keydown', event => {
+    const items = [...popup.querySelectorAll('button:not(:disabled)')];
+    const current = items.indexOf(document.activeElement);
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault(); items[(current + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length]?.focus();
+    }
+  });
+  document.addEventListener('pointerdown', event => {
+    if (!event.target.closest('#paint-menu') && !event.target.closest('[data-menu]')) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { const owner = menuOwner; closeMenu(); owner?.focus(); return; }
+    if (busy || drawing || event.target.matches('input, textarea')) return;
+    const key = event.key.toLowerCase();
+    if (event.ctrlKey || event.metaKey) {
+      const action = key === 's' ? (event.shiftKey ? 'portable' : 'save') : key === 'o' ? 'open' :
+        key === 'n' ? 'new' : key === 'z' ? (event.shiftKey ? 'redo' : 'undo') : key === 'y' ? 'redo' : null;
+      if (action) { event.preventDefault(); closeMenu(); actions[action](); }
+    } else if (!event.altKey && key === 'b') selectTool('brush');
+    else if (!event.altKey && key === 'e') selectTool('eraser');
+  });
+  window.addEventListener('beforeunload', event => {
+    if (dirty()) { event.preventDefault(); event.returnValue = ''; }
+  });
+  async function init() {
+    white(); updateScale(); selectTool('brush'); selectColor('#000000');
+    try {
+      const embedded = JSON.parse($('paint-document').textContent);
+      if (embedded.image) {
+        if (!/^data:image\/png;base64,/.test(embedded.image)) throw new Error('Invalid embedded image.');
+        const img = await imageFrom(embedded.image);
+        if (img.naturalWidth > MAX_SIDE || img.naturalHeight > MAX_SIDE || !img.naturalWidth || !img.naturalHeight) {
+          throw new Error('Embedded image is too large.');
+        }
+        canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+        white(); ctx.drawImage(img, 0, 0); updateScale();
+        filename = safeFilename(embedded.filename || 'untitled.png');
+      }
+    } catch (error) { alert('The saved drawing could not be restored. ' + error.message); }
+    freshHistory(); busy = false; setStatus('Ready');
+  }
+  init();
+})();
+</script></body></html>

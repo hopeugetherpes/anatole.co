@@ -105,4 +105,15 @@ This site isn't a portfolio, and I'm not a product. It's a space where I try to 
 - [Orbit Garden](https://anatole.co/orbit-garden.html): served from `public/orbit-garden.html`; source in `projects/orbit-garden.html`.
 - [Pictocrypt](https://anatole.co/pictocrypt.html): served from `public/pictocrypt.html`; downloadable source in `projects/pictocrypt.html`.
 
-Both pages are included automatically when deploying this repository to Vercel.
+- [Music Visualizer](https://anatole.co/music-visualizer-offline.html): served from `public/music-visualizer-offline.html`; source in `projects/music-visualizer-offline.html`.
+- [WebGL Distortion](https://anatole.co/webgl-distortion-portable.html): served from `public/webgl-distortion-portable.html`; source in `projects/webgl-distortion-portable.html`.
+- [Particules](https://anatole.co/particules-portable.html): served from `public/particules-portable.html`; source in `projects/particules-portable.html`.
+- [ASCII Water Ripple](https://anatole.co/ascii-water-ripple-portable.html): served from `public/ascii-water-ripple-portable.html`; source in `projects/ascii-water-ripple-portable.html`.
+- [The Orb](https://anatole.co/the-orb-portable.html): served from `public/the-orb-portable.html`; source in `projects/The-Orb-portable.html`.
+- [Habbo](https://anatole.co/habbo-portable.html): served from `public/habbo-portable.html`; source in `projects/Habbo-portable.html`.
+- [Voice Visualizer](https://anatole.co/voice-visualizer-portable.html): served from `public/voice-visualizer-portable.html`; source in `projects/Voice-Visualizer-portable.html`.
+- [Snowflake](https://anatole.co/snowflake-portable.html): served from `public/snowflake-portable.html`; source in `projects/Snowflake-portable.html`.
+- [Glimmering Map](https://anatole.co/glimmering-map.html): served from `public/glimmering-map.html`; source in `projects/glimmering-map.html`.
+- [Paint](https://anatole.co/paint.html): served from `public/paint.html`; source in `projects/Paint.html`.
+
+All standalone pages are included automatically when deploying this repository to Vercel, without additional configuration. Public URLs use lowercase filenames and omit download copy suffixes such as `(1)`.

@@ -117,3 +117,16 @@ This site isn't a portfolio, and I'm not a product. It's a space where I try to 
 - [Paint](https://anatole.co/paint.html): served from `public/paint.html`; source in `projects/Paint.html`.
 
 All standalone pages are included automatically when deploying this repository to Vercel, without additional configuration. Public URLs use lowercase filenames and omit download copy suffixes such as `(1)`.
+
+## Dependency maintenance
+
+Use Node.js 24, `npm ci`, `npm run lint`, `npm test`, `npx tsc --noEmit`, and
+`npm audit` to validate dependency updates. The test command builds the production
+site and checks the homepage, 404 response, local resources, and security adapters.
+
+The private `vendor/safe-minimatch` workspace delegates matching to upstream
+minimatch 11.0.1 while preserving the callable CommonJS and named ESM APIs used by
+ESLint's dependencies. Its `makeRe` facade supports the `.test()` operation used
+by the import restriction rule; RegExp serialization and `.exec()` are outside
+its supported surface. No matcher implementation is copied. Review this override
+when the lint dependencies adopt minimatch 11 directly.
